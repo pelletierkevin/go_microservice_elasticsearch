@@ -100,13 +100,3 @@ func (s *Server) GetIndicesList(ctx context.Context, in *Message) (*ListIndices,
 
 	return listIndice, nil
 }
-
-
-func CastArrayToArrayOfPointers(originalArray []IndiceInfo) ([]*IndiceInfo) {
-	var arrayOfPointers []*IndiceInfo
-	for i := 0; i < len(originalArray); i++ {
-		arrayOfPointers = append(arrayOfPointers, &originalArray[i])
-	}
-
-	return arrayOfPointers
-}

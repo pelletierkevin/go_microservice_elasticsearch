@@ -6,31 +6,8 @@ import (
     "os"
     "net"
     "google.golang.org/grpc"
-    "github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch"
     "github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/grpc_health"
 )
-
-func CallElasticSearchHealthFunc(hostnameCluster string, portCluster string) {
-    fmt.Println("Hostname of Elastic Search cluster : " + hostnameCluster)
-    fmt.Println("Port of Elastic Search cluster : " + portCluster)
-
-    // Request greeting messages for the names.
-    clusterInfo, err := elasticsearch.GetClusterHealth(hostnameCluster, portCluster)
-    if err != nil {
-        log.Fatal(err)
-    }
-    // If no error was returned, print the returned map of
-    // messages to the console.
-    fmt.Println(clusterInfo)
-
-    // Request greeting messages for the names.
-    resp, err := elasticsearch.GetClusterIndices(hostnameCluster, portCluster)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(resp)
-}
 
 func main() {
     // Set properties of the predefined Logger, including
@@ -50,7 +27,7 @@ func main() {
         log.Fatalf("failed to listen: %v", err)
     }
 
-    s := grpc_health.Server{"localhost", "9200"}
+    s := grpc_health.Server{hostnameCluster, portCluster}
 
     grpcServer := grpc.NewServer()
 
@@ -61,18 +38,6 @@ func main() {
     }
     
     // ----------------------------
-
-    if (len(os.Args) > 3) {
-        indiceName := os.Args[3]
-
-        // Request greeting messages for the names.
-        resp, err := elasticsearch.GetHealthOfIndice(hostnameCluster, portCluster, indiceName)
-        if err != nil {
-            log.Fatal(err)
-        }
-
-        fmt.Println(resp)
-    }
 
 
 }
