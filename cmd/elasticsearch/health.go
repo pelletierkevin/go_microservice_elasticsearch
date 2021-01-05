@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"io/ioutil"
 	"encoding/json"
-	"fmt"
+	"log"
 )
 
 
@@ -42,18 +42,22 @@ type IndiceInfo struct {
 
 
 func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
-	// If no name was given, return an error with a message.
+	
 	var clusterInfo ClusterInfo
 
+	// Check hostname & port is correct
     if (hostname == "" || port ==  "") {
         return clusterInfo, errors.New("Hostname or Port not defined")
-    }
-    // Create a message using a random format.
-	healthURL := "http://" + hostname + ":" + port + "/_cat/health?v&pretty"
+	}
+	
+    // Url to get the health of the Elasticsearch cluster
+	healthURL := "http://" + hostname + ":" + port + "/_cluster/health"
 
 	responseHealth, err := HttpGetWithJson(healthURL)
 	if err != nil {
         return clusterInfo, err
+	} else {
+		log.Printf("Successfuly retrieved the health status of the cluster")
 	}
 
 	defer responseHealth.Body.Close()
@@ -63,42 +67,34 @@ func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
         return clusterInfo, err
 	}
 
-	fmt.Println(string(body))
-
-	var generic []ClusterInfo
-	err = json.Unmarshal(body, &generic)
+	var clusterInfoToBeFilled []ClusterInfo
+	err = json.Unmarshal(body, &clusterInfoToBeFilled)
 	if err != nil {
 		return clusterInfo, err
 	}
 
-	clusterInfo = generic[0]
+	// The result is encapsulated in an array. The cluster is always at index 0. 
+	clusterInfo = clusterInfoToBeFilled[0]
 
-	fmt.Println("Struct :")
-	fmt.Println(clusterInfo)
-
-	fmt.Println("Get STATUS of Cluster : " + string(clusterInfo.Status) )
-
-	// fmt.Println("Get STATUS of Cluster : " + string(jsonStruct) )
-
-	// return string(body), nil
 	return clusterInfo, nil
 }
 
 func GetClusterIndices(hostname string, port string) ([]IndiceInfo, error) {
 	
-	// Proto requires to use an array of pointers
 	var listIndices []IndiceInfo
 	
-	// If no name was given, return an error with a message.
+	// Check hostname & port is correct
     if (hostname == "" || port ==  "") {
         return listIndices, errors.New("Hostname or Port not defined")
     }
-    // Create a message using a random format.
+    // Url to get all the indices of the Elasticsearch cluster
 	healthURL := "http://" + hostname + ":" + port + "/_cat/indices?v"
 
 	responseHealth, err := HttpGetWithJson(healthURL)
 	if err != nil {
         return listIndices, err
+	} else {
+		log.Printf("Successfuly retrieved the indices of the cluster")
 	}
 
 	defer responseHealth.Body.Close()
@@ -108,16 +104,10 @@ func GetClusterIndices(hostname string, port string) ([]IndiceInfo, error) {
         return listIndices, err
 	}
 
-	fmt.Println(string(body))
-
 	err = json.Unmarshal(body, &listIndices)
 	if err != nil {
 		return listIndices, err
 	}
-
-	fmt.Println("All indices :")
-	fmt.Println(listIndices)
-	
 
 	return listIndices, nil
 }
@@ -126,11 +116,11 @@ func GetHealthOfIndice(hostname string, port string, indicename string) (IndiceI
    
 	var indiceInfo IndiceInfo
 	
-	// If no name was given, return an error with a message.
+	// Check hostname & port is correct
     if (hostname == "" || port ==  "") {
         return indiceInfo, errors.New("Hostname or Port not defined")
     }
-    // Create a message using a random format.
+    // Url to get the health status of the given index of the Elasticsearch cluster
 	healthURL := "http://" + hostname + ":" + port + "/_cat/indices/" + indicename + "?v"
 
 	responseHealth, err := HttpGetWithJson(healthURL)
@@ -145,22 +135,14 @@ func GetHealthOfIndice(hostname string, port string, indicename string) (IndiceI
         return indiceInfo, err
 	}
 
-
-	fmt.Println(string(body))
-
-	var generic []IndiceInfo
-	err = json.Unmarshal(body, &generic)
+	var indiceInfoToBeFilled []IndiceInfo
+	err = json.Unmarshal(body, &indiceInfoToBeFilled)
 	if err != nil {
 		return indiceInfo, err
 	}
 
-	indiceInfo = generic[0]
-
-	fmt.Println("Struct :")
-	fmt.Println(indiceInfo)
-
-	fmt.Println("Get STATUS of Cluster : " + string(indiceInfo.Status) )
-	
+	// The result is encapsulated in an array. The cluster is always at index 0. 
+	indiceInfo = indiceInfoToBeFilled[0]
 
 	return indiceInfo, nil
 }
