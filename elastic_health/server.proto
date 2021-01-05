@@ -1,5 +1,5 @@
 syntax = "proto3";
-package chat;
+package grpc_health;
 
 
 message Message {
@@ -28,7 +28,7 @@ message ListIndices {
   repeated IndiceInfo indicelist = 2;
 }
 
-service ChatService {
+service ElasticService {
   rpc SayHello(Message) returns (Message) {}
   rpc SayBonjour(Message) returns (Message) {}
   rpc GetClusterStatus(Message) returns (ClusterInfo) {}

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.25.0
 // 	protoc        v3.14.0
-// source: chat/chat.proto
+// source: server.proto
 
 package grpc_health
 
@@ -40,7 +40,7 @@ type Message struct {
 func (x *Message) Reset() {
 	*x = Message{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_chat_proto_msgTypes[0]
+		mi := &file_server_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -53,7 +53,7 @@ func (x *Message) String() string {
 func (*Message) ProtoMessage() {}
 
 func (x *Message) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chat_proto_msgTypes[0]
+	mi := &file_server_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -66,7 +66,7 @@ func (x *Message) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Message.ProtoReflect.Descriptor instead.
 func (*Message) Descriptor() ([]byte, []int) {
-	return file_chat_chat_proto_rawDescGZIP(), []int{0}
+	return file_server_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Message) GetBody() string {
@@ -87,7 +87,7 @@ type IndiceName struct {
 func (x *IndiceName) Reset() {
 	*x = IndiceName{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_chat_proto_msgTypes[1]
+		mi := &file_server_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -100,7 +100,7 @@ func (x *IndiceName) String() string {
 func (*IndiceName) ProtoMessage() {}
 
 func (x *IndiceName) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chat_proto_msgTypes[1]
+	mi := &file_server_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -113,7 +113,7 @@ func (x *IndiceName) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IndiceName.ProtoReflect.Descriptor instead.
 func (*IndiceName) Descriptor() ([]byte, []int) {
-	return file_chat_chat_proto_rawDescGZIP(), []int{1}
+	return file_server_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *IndiceName) GetIndicename() string {
@@ -136,7 +136,7 @@ type ClusterInfo struct {
 func (x *ClusterInfo) Reset() {
 	*x = ClusterInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_chat_proto_msgTypes[2]
+		mi := &file_server_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -149,7 +149,7 @@ func (x *ClusterInfo) String() string {
 func (*ClusterInfo) ProtoMessage() {}
 
 func (x *ClusterInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chat_proto_msgTypes[2]
+	mi := &file_server_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +162,7 @@ func (x *ClusterInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClusterInfo.ProtoReflect.Descriptor instead.
 func (*ClusterInfo) Descriptor() ([]byte, []int) {
-	return file_chat_chat_proto_rawDescGZIP(), []int{2}
+	return file_server_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ClusterInfo) GetName() string {
@@ -200,7 +200,7 @@ type IndiceInfo struct {
 func (x *IndiceInfo) Reset() {
 	*x = IndiceInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_chat_proto_msgTypes[3]
+		mi := &file_server_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -213,7 +213,7 @@ func (x *IndiceInfo) String() string {
 func (*IndiceInfo) ProtoMessage() {}
 
 func (x *IndiceInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chat_proto_msgTypes[3]
+	mi := &file_server_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -226,7 +226,7 @@ func (x *IndiceInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IndiceInfo.ProtoReflect.Descriptor instead.
 func (*IndiceInfo) Descriptor() ([]byte, []int) {
-	return file_chat_chat_proto_rawDescGZIP(), []int{3}
+	return file_server_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *IndiceInfo) GetIndicename() string {
@@ -269,7 +269,7 @@ type ListIndices struct {
 func (x *ListIndices) Reset() {
 	*x = ListIndices{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_chat_chat_proto_msgTypes[4]
+		mi := &file_server_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -282,7 +282,7 @@ func (x *ListIndices) String() string {
 func (*ListIndices) ProtoMessage() {}
 
 func (x *ListIndices) ProtoReflect() protoreflect.Message {
-	mi := &file_chat_chat_proto_msgTypes[4]
+	mi := &file_server_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -295,7 +295,7 @@ func (x *ListIndices) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListIndices.ProtoReflect.Descriptor instead.
 func (*ListIndices) Descriptor() ([]byte, []int) {
-	return file_chat_chat_proto_rawDescGZIP(), []int{4}
+	return file_server_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListIndices) GetNbIndices() string {
@@ -312,85 +312,91 @@ func (x *ListIndices) GetIndicelist() []*IndiceInfo {
 	return nil
 }
 
-var File_chat_chat_proto protoreflect.FileDescriptor
+var File_server_proto protoreflect.FileDescriptor
 
-var file_chat_chat_proto_rawDesc = []byte{
-	0x0a, 0x0f, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x12, 0x04, 0x63, 0x68, 0x61, 0x74, 0x22, 0x1d, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x22, 0x2c, 0x0a, 0x0a, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65,
-	0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65,
-	0x6e, 0x61, 0x6d, 0x65, 0x22, 0x4f, 0x0a, 0x0b, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x49,
-	0x6e, 0x66, 0x6f, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75,
-	0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12,
-	0x14, 0x0a, 0x05, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x6e, 0x6f, 0x64, 0x65, 0x73, 0x22, 0x70, 0x0a, 0x0a, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x49,
-	0x6e, 0x66, 0x6f, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x6e, 0x61, 0x6d,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x6e,
-	0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x06, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x12, 0x16, 0x0a, 0x06, 0x73,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x5d, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x49,
-	0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x12, 0x1c, 0x0a, 0x09, 0x6e, 0x62, 0x49, 0x6e, 0x64, 0x69,
-	0x63, 0x65, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x6e, 0x62, 0x49, 0x6e, 0x64,
-	0x69, 0x63, 0x65, 0x73, 0x12, 0x30, 0x0a, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x6c, 0x69,
-	0x73, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e,
-	0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0a, 0x69, 0x6e, 0x64, 0x69,
-	0x63, 0x65, 0x6c, 0x69, 0x73, 0x74, 0x32, 0x8e, 0x02, 0x0a, 0x0b, 0x43, 0x68, 0x61, 0x74, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x2a, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c,
-	0x6c, 0x6f, 0x12, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x1a, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
-	0x22, 0x00, 0x12, 0x2c, 0x0a, 0x0a, 0x53, 0x61, 0x79, 0x42, 0x6f, 0x6e, 0x6a, 0x6f, 0x75, 0x72,
-	0x12, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x1a,
-	0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x00,
-	0x12, 0x36, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x53, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x12, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x1a, 0x11, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x43, 0x6c, 0x75, 0x73, 0x74,
-	0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x49,
-	0x6e, 0x64, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x10, 0x2e, 0x63, 0x68,
-	0x61, 0x74, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x1a, 0x10, 0x2e,
-	0x63, 0x68, 0x61, 0x74, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x22,
-	0x00, 0x12, 0x34, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x4c,
-	0x69, 0x73, 0x74, 0x12, 0x0d, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x1a, 0x11, 0x2e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x49, 0x6e,
-	0x64, 0x69, 0x63, 0x65, 0x73, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+var file_server_proto_rawDesc = []byte{
+	0x0a, 0x0c, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b,
+	0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x22, 0x1d, 0x0a, 0x07, 0x4d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x22, 0x2c, 0x0a, 0x0a, 0x49, 0x6e,
+	0x64, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x64, 0x69,
+	0x63, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e,
+	0x64, 0x69, 0x63, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x4f, 0x0a, 0x0b, 0x43, 0x6c, 0x75, 0x73,
+	0x74, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73,
+	0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x05, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x22, 0x70, 0x0a, 0x0a, 0x49, 0x6e, 0x64,
+	0x69, 0x63, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63,
+	0x65, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x64,
+	0x69, 0x63, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x6c, 0x74,
+	0x68, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x12,
+	0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x64, 0x0a, 0x0b, 0x4c,
+	0x69, 0x73, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x12, 0x1c, 0x0a, 0x09, 0x6e, 0x62,
+	0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x6e,
+	0x62, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x12, 0x37, 0x0a, 0x0a, 0x69, 0x6e, 0x64, 0x69,
+	0x63, 0x65, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63,
+	0x65, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x6c, 0x69, 0x73,
+	0x74, 0x32, 0xd7, 0x02, 0x0a, 0x0e, 0x45, 0x6c, 0x61, 0x73, 0x74, 0x69, 0x63, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x12, 0x38, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f,
+	0x12, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65,
+	0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x00, 0x12, 0x3a,
+	0x0a, 0x0a, 0x53, 0x61, 0x79, 0x42, 0x6f, 0x6e, 0x6a, 0x6f, 0x75, 0x72, 0x12, 0x14, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68,
+	0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x00, 0x12, 0x44, 0x0a, 0x10, 0x47, 0x65,
+	0x74, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x14,
+	0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d, 0x65, 0x73,
+	0x73, 0x61, 0x67, 0x65, 0x1a, 0x18, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c,
+	0x74, 0x68, 0x2e, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x00,
+	0x12, 0x45, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x12, 0x17, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74,
+	0x68, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x1a, 0x17, 0x2e, 0x67,
+	0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63,
+	0x65, 0x49, 0x6e, 0x66, 0x6f, 0x22, 0x00, 0x12, 0x42, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x49, 0x6e,
+	0x64, 0x69, 0x63, 0x65, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63,
+	0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x1a,
+	0x18, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4c, 0x69,
+	0x73, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
-	file_chat_chat_proto_rawDescOnce sync.Once
-	file_chat_chat_proto_rawDescData = file_chat_chat_proto_rawDesc
+	file_server_proto_rawDescOnce sync.Once
+	file_server_proto_rawDescData = file_server_proto_rawDesc
 )
 
-func file_chat_chat_proto_rawDescGZIP() []byte {
-	file_chat_chat_proto_rawDescOnce.Do(func() {
-		file_chat_chat_proto_rawDescData = protoimpl.X.CompressGZIP(file_chat_chat_proto_rawDescData)
+func file_server_proto_rawDescGZIP() []byte {
+	file_server_proto_rawDescOnce.Do(func() {
+		file_server_proto_rawDescData = protoimpl.X.CompressGZIP(file_server_proto_rawDescData)
 	})
-	return file_chat_chat_proto_rawDescData
+	return file_server_proto_rawDescData
 }
 
-var file_chat_chat_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
-var file_chat_chat_proto_goTypes = []interface{}{
-	(*Message)(nil),     // 0: chat.Message
-	(*IndiceName)(nil),  // 1: chat.IndiceName
-	(*ClusterInfo)(nil), // 2: chat.ClusterInfo
-	(*IndiceInfo)(nil),  // 3: chat.IndiceInfo
-	(*ListIndices)(nil), // 4: chat.ListIndices
+var file_server_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_server_proto_goTypes = []interface{}{
+	(*Message)(nil),     // 0: grpc_health.Message
+	(*IndiceName)(nil),  // 1: grpc_health.IndiceName
+	(*ClusterInfo)(nil), // 2: grpc_health.ClusterInfo
+	(*IndiceInfo)(nil),  // 3: grpc_health.IndiceInfo
+	(*ListIndices)(nil), // 4: grpc_health.ListIndices
 }
-var file_chat_chat_proto_depIdxs = []int32{
-	3, // 0: chat.ListIndices.indicelist:type_name -> chat.IndiceInfo
-	0, // 1: chat.ChatService.SayHello:input_type -> chat.Message
-	0, // 2: chat.ChatService.SayBonjour:input_type -> chat.Message
-	0, // 3: chat.ChatService.GetClusterStatus:input_type -> chat.Message
-	1, // 4: chat.ChatService.GetIndiceStatus:input_type -> chat.IndiceName
-	0, // 5: chat.ChatService.GetIndicesList:input_type -> chat.Message
-	0, // 6: chat.ChatService.SayHello:output_type -> chat.Message
-	0, // 7: chat.ChatService.SayBonjour:output_type -> chat.Message
-	2, // 8: chat.ChatService.GetClusterStatus:output_type -> chat.ClusterInfo
-	3, // 9: chat.ChatService.GetIndiceStatus:output_type -> chat.IndiceInfo
-	4, // 10: chat.ChatService.GetIndicesList:output_type -> chat.ListIndices
+var file_server_proto_depIdxs = []int32{
+	3, // 0: grpc_health.ListIndices.indicelist:type_name -> grpc_health.IndiceInfo
+	0, // 1: grpc_health.ElasticService.SayHello:input_type -> grpc_health.Message
+	0, // 2: grpc_health.ElasticService.SayBonjour:input_type -> grpc_health.Message
+	0, // 3: grpc_health.ElasticService.GetClusterStatus:input_type -> grpc_health.Message
+	1, // 4: grpc_health.ElasticService.GetIndiceStatus:input_type -> grpc_health.IndiceName
+	0, // 5: grpc_health.ElasticService.GetIndicesList:input_type -> grpc_health.Message
+	0, // 6: grpc_health.ElasticService.SayHello:output_type -> grpc_health.Message
+	0, // 7: grpc_health.ElasticService.SayBonjour:output_type -> grpc_health.Message
+	2, // 8: grpc_health.ElasticService.GetClusterStatus:output_type -> grpc_health.ClusterInfo
+	3, // 9: grpc_health.ElasticService.GetIndiceStatus:output_type -> grpc_health.IndiceInfo
+	4, // 10: grpc_health.ElasticService.GetIndicesList:output_type -> grpc_health.ListIndices
 	6, // [6:11] is the sub-list for method output_type
 	1, // [1:6] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -398,13 +404,13 @@ var file_chat_chat_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_chat_chat_proto_init() }
-func file_chat_chat_proto_init() {
-	if File_chat_chat_proto != nil {
+func init() { file_server_proto_init() }
+func file_server_proto_init() {
+	if File_server_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_chat_chat_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_server_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Message); i {
 			case 0:
 				return &v.state
@@ -416,7 +422,7 @@ func file_chat_chat_proto_init() {
 				return nil
 			}
 		}
-		file_chat_chat_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_server_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*IndiceName); i {
 			case 0:
 				return &v.state
@@ -428,7 +434,7 @@ func file_chat_chat_proto_init() {
 				return nil
 			}
 		}
-		file_chat_chat_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_server_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ClusterInfo); i {
 			case 0:
 				return &v.state
@@ -440,7 +446,7 @@ func file_chat_chat_proto_init() {
 				return nil
 			}
 		}
-		file_chat_chat_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_server_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*IndiceInfo); i {
 			case 0:
 				return &v.state
@@ -452,7 +458,7 @@ func file_chat_chat_proto_init() {
 				return nil
 			}
 		}
-		file_chat_chat_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_server_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListIndices); i {
 			case 0:
 				return &v.state
@@ -469,20 +475,20 @@ func file_chat_chat_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_chat_chat_proto_rawDesc,
+			RawDescriptor: file_server_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_chat_chat_proto_goTypes,
-		DependencyIndexes: file_chat_chat_proto_depIdxs,
-		MessageInfos:      file_chat_chat_proto_msgTypes,
+		GoTypes:           file_server_proto_goTypes,
+		DependencyIndexes: file_server_proto_depIdxs,
+		MessageInfos:      file_server_proto_msgTypes,
 	}.Build()
-	File_chat_chat_proto = out.File
-	file_chat_chat_proto_rawDesc = nil
-	file_chat_chat_proto_goTypes = nil
-	file_chat_chat_proto_depIdxs = nil
+	File_server_proto = out.File
+	file_server_proto_rawDesc = nil
+	file_server_proto_goTypes = nil
+	file_server_proto_depIdxs = nil
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -493,10 +499,10 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// ChatServiceClient is the client API for ChatService service.
+// ElasticServiceClient is the client API for ElasticService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type ChatServiceClient interface {
+type ElasticServiceClient interface {
 	SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
 	SayBonjour(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
 	GetClusterStatus(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ClusterInfo, error)
@@ -504,61 +510,61 @@ type ChatServiceClient interface {
 	GetIndicesList(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ListIndices, error)
 }
 
-type chatServiceClient struct {
+type elasticServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewChatServiceClient(cc grpc.ClientConnInterface) ChatServiceClient {
-	return &chatServiceClient{cc}
+func NewElasticServiceClient(cc grpc.ClientConnInterface) ElasticServiceClient {
+	return &elasticServiceClient{cc}
 }
 
-func (c *chatServiceClient) SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
+func (c *elasticServiceClient) SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
 	out := new(Message)
-	err := c.cc.Invoke(ctx, "/chat.ChatService/SayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/SayHello", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *chatServiceClient) SayBonjour(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
+func (c *elasticServiceClient) SayBonjour(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
 	out := new(Message)
-	err := c.cc.Invoke(ctx, "/chat.ChatService/SayBonjour", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/SayBonjour", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *chatServiceClient) GetClusterStatus(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ClusterInfo, error) {
+func (c *elasticServiceClient) GetClusterStatus(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ClusterInfo, error) {
 	out := new(ClusterInfo)
-	err := c.cc.Invoke(ctx, "/chat.ChatService/GetClusterStatus", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/GetClusterStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *chatServiceClient) GetIndiceStatus(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*IndiceInfo, error) {
+func (c *elasticServiceClient) GetIndiceStatus(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*IndiceInfo, error) {
 	out := new(IndiceInfo)
-	err := c.cc.Invoke(ctx, "/chat.ChatService/GetIndiceStatus", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/GetIndiceStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *chatServiceClient) GetIndicesList(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ListIndices, error) {
+func (c *elasticServiceClient) GetIndicesList(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ListIndices, error) {
 	out := new(ListIndices)
-	err := c.cc.Invoke(ctx, "/chat.ChatService/GetIndicesList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/GetIndicesList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ChatServiceServer is the server API for ChatService service.
-type ChatServiceServer interface {
+// ElasticServiceServer is the server API for ElasticService service.
+type ElasticServiceServer interface {
 	SayHello(context.Context, *Message) (*Message, error)
 	SayBonjour(context.Context, *Message) (*Message, error)
 	GetClusterStatus(context.Context, *Message) (*ClusterInfo, error)
@@ -566,145 +572,145 @@ type ChatServiceServer interface {
 	GetIndicesList(context.Context, *Message) (*ListIndices, error)
 }
 
-// UnimplementedChatServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedChatServiceServer struct {
+// UnimplementedElasticServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedElasticServiceServer struct {
 }
 
-func (*UnimplementedChatServiceServer) SayHello(context.Context, *Message) (*Message, error) {
+func (*UnimplementedElasticServiceServer) SayHello(context.Context, *Message) (*Message, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
 }
-func (*UnimplementedChatServiceServer) SayBonjour(context.Context, *Message) (*Message, error) {
+func (*UnimplementedElasticServiceServer) SayBonjour(context.Context, *Message) (*Message, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayBonjour not implemented")
 }
-func (*UnimplementedChatServiceServer) GetClusterStatus(context.Context, *Message) (*ClusterInfo, error) {
+func (*UnimplementedElasticServiceServer) GetClusterStatus(context.Context, *Message) (*ClusterInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetClusterStatus not implemented")
 }
-func (*UnimplementedChatServiceServer) GetIndiceStatus(context.Context, *IndiceName) (*IndiceInfo, error) {
+func (*UnimplementedElasticServiceServer) GetIndiceStatus(context.Context, *IndiceName) (*IndiceInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetIndiceStatus not implemented")
 }
-func (*UnimplementedChatServiceServer) GetIndicesList(context.Context, *Message) (*ListIndices, error) {
+func (*UnimplementedElasticServiceServer) GetIndicesList(context.Context, *Message) (*ListIndices, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetIndicesList not implemented")
 }
 
-func RegisterChatServiceServer(s *grpc.Server, srv ChatServiceServer) {
-	s.RegisterService(&_ChatService_serviceDesc, srv)
+func RegisterElasticServiceServer(s *grpc.Server, srv ElasticServiceServer) {
+	s.RegisterService(&_ElasticService_serviceDesc, srv)
 }
 
-func _ChatService_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ElasticService_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChatServiceServer).SayHello(ctx, in)
+		return srv.(ElasticServiceServer).SayHello(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chat.ChatService/SayHello",
+		FullMethod: "/grpc_health.ElasticService/SayHello",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServiceServer).SayHello(ctx, req.(*Message))
+		return srv.(ElasticServiceServer).SayHello(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChatService_SayBonjour_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ElasticService_SayBonjour_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChatServiceServer).SayBonjour(ctx, in)
+		return srv.(ElasticServiceServer).SayBonjour(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chat.ChatService/SayBonjour",
+		FullMethod: "/grpc_health.ElasticService/SayBonjour",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServiceServer).SayBonjour(ctx, req.(*Message))
+		return srv.(ElasticServiceServer).SayBonjour(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChatService_GetClusterStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ElasticService_GetClusterStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChatServiceServer).GetClusterStatus(ctx, in)
+		return srv.(ElasticServiceServer).GetClusterStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chat.ChatService/GetClusterStatus",
+		FullMethod: "/grpc_health.ElasticService/GetClusterStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServiceServer).GetClusterStatus(ctx, req.(*Message))
+		return srv.(ElasticServiceServer).GetClusterStatus(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChatService_GetIndiceStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ElasticService_GetIndiceStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IndiceName)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChatServiceServer).GetIndiceStatus(ctx, in)
+		return srv.(ElasticServiceServer).GetIndiceStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chat.ChatService/GetIndiceStatus",
+		FullMethod: "/grpc_health.ElasticService/GetIndiceStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServiceServer).GetIndiceStatus(ctx, req.(*IndiceName))
+		return srv.(ElasticServiceServer).GetIndiceStatus(ctx, req.(*IndiceName))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ChatService_GetIndicesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ElasticService_GetIndicesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ChatServiceServer).GetIndicesList(ctx, in)
+		return srv.(ElasticServiceServer).GetIndicesList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/chat.ChatService/GetIndicesList",
+		FullMethod: "/grpc_health.ElasticService/GetIndicesList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServiceServer).GetIndicesList(ctx, req.(*Message))
+		return srv.(ElasticServiceServer).GetIndicesList(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _ChatService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "chat.ChatService",
-	HandlerType: (*ChatServiceServer)(nil),
+var _ElasticService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "grpc_health.ElasticService",
+	HandlerType: (*ElasticServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SayHello",
-			Handler:    _ChatService_SayHello_Handler,
+			Handler:    _ElasticService_SayHello_Handler,
 		},
 		{
 			MethodName: "SayBonjour",
-			Handler:    _ChatService_SayBonjour_Handler,
+			Handler:    _ElasticService_SayBonjour_Handler,
 		},
 		{
 			MethodName: "GetClusterStatus",
-			Handler:    _ChatService_GetClusterStatus_Handler,
+			Handler:    _ElasticService_GetClusterStatus_Handler,
 		},
 		{
 			MethodName: "GetIndiceStatus",
-			Handler:    _ChatService_GetIndiceStatus_Handler,
+			Handler:    _ElasticService_GetIndiceStatus_Handler,
 		},
 		{
 			MethodName: "GetIndicesList",
-			Handler:    _ChatService_GetIndicesList_Handler,
+			Handler:    _ElasticService_GetIndicesList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "chat/chat.proto",
+	Metadata: "server.proto",
 }
