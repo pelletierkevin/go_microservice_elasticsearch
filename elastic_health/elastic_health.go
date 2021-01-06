@@ -1,43 +1,37 @@
 package main
 
 import (
-    "fmt"
-    "log"
     "os"
-    "net"
-    "google.golang.org/grpc"
+    "log"
+    "errors"
+    "strconv"
     "github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/grpc_health"
+    "github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch"
 )
 
 func main() {
-    // Set properties of the predefined Logger, including
-    // the log entry prefix and a flag to disable printing
-    // the time, source file, and line number.
-    log.SetPrefix("greetings: ")
-    log.SetFlags(0)
 
-    hostnameCluster := os.Args[1]
-    portCluster := os.Args[2]
+    clusterHostname, clusterPort, err := GetClusterHostnameAndPortFromArguments()
+    if(err != nil) {
+        log.Fatalf("Command error. Please use the commmand like this : %s %s %s", os.Args[0], "<cluster hostname>", "<cluster port>")
+    }
 
-    fmt.Println("Go gRPC Elasticsearch Health Microservice!")
+    log.Printf(" ------- Go gRPC Elasticsearch Health Microservice! ------- ")
   
-    // GRPC ---------------
-    lis, err := net.Listen("tcp", ":9000")
-    if err != nil {
-        log.Fatalf("failed to listen: %v", err)
+    elasticsearch.CanConnectToElasticSearchCluster(clusterHostname, clusterPort)
+
+    grpc_health.StartGrpcServerOnPort("9000", clusterHostname, clusterPort)
+
+}
+
+func GetClusterHostnameAndPortFromArguments() (string, string, error)  {
+    if len(os.Args) != 3 {
+        return "", "", errors.New("Command error. Missing arguments or more arguments than required.")
+    } else {
+        _, err := strconv.Atoi(os.Args[2])
+        if(err != nil) {
+            return os.Args[1], os.Args[2], errors.New("Command error. The second argument should represent the port number and can only contains digits.")
+        }
     }
-
-    s := grpc_health.Server{hostnameCluster, portCluster}
-
-    grpcServer := grpc.NewServer()
-
-    grpc_health.RegisterChatServiceServer(grpcServer, &s)
-
-	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %s", err)
-    }
-    
-    // ----------------------------
-
-
+    return os.Args[1], os.Args[2], nil
 }

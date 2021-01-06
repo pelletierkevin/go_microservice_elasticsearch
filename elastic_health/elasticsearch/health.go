@@ -40,6 +40,18 @@ type IndiceInfo struct {
 	Pri_store_size string `json:"pri.store.size"`
 }
 
+func CanConnectToElasticSearchCluster(hostname string, port string) {
+	// Url to get the health of the Elasticsearch cluster
+	healthURL := "http://" + hostname + ":" + port + "/_cat/health?v&pretty"
+
+	_, err := HttpGetWithJson(healthURL)
+	if err != nil {
+		log.Fatalf("Failed to connect to the cluster: %v", err)
+	} else {
+		log.Printf("Successfuly reached the Elasticsearch cluster")
+	}
+}
+
 
 func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
 	

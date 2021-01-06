@@ -11,15 +11,15 @@ import (
 func main() {
 
 	var conn *grpc.ClientConn
-	conn, err := grpc.Dial(":9000", grpc.WithInsecure())
+	conn, err := grpc.Dial("localhost:9000", grpc.WithInsecure())
 	if err != nil {
-		log.Fatalf("Error, did not connect: %s", err)
+		log.Fatalf("Error, did not connect to the gRPC server: %s", err)
 	} else {
 		log.Printf("Connected to gRPC server - Health/Status for Elasticsearch cluster")
 	}
 	defer conn.Close()
 
-	c := grpc_health.NewChatServiceClient(conn)
+	c := grpc_health.NewElasticServiceClient(conn)
 
 	modeChoice := os.Args[1]
 	var response *grpc_health.Message
@@ -40,7 +40,7 @@ func main() {
 		log.Printf("Response from server: %s", response.Body)
 	} else if ( modeChoice == "3" ) {
 		var clusterinfo *grpc_health.ClusterInfo
-		clusterinfo, err = c.GetClusterStatus(context.Background(), &grpc_health.Message{Body: "Hello From Client! I'll wait for your reply!!!"})
+		clusterinfo, err = c.GetClusterStatus(context.Background(), &grpc_health.Message{Body: "Asking Cluster status"})
 
 		if err != nil {
 			log.Fatalf("Error when calling GetClusterStatus: %s", err)

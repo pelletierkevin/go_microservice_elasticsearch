@@ -30,7 +30,6 @@ message ListIndices {
 
 service ElasticService {
   rpc SayHello(Message) returns (Message) {}
-  rpc SayBonjour(Message) returns (Message) {}
   rpc GetClusterStatus(Message) returns (ClusterInfo) {}
   rpc GetIndiceStatus(IndiceName) returns (IndiceInfo) {}
   rpc GetIndicesList(Message) returns (ListIndices) {}

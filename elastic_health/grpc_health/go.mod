@@ -1,4 +1,4 @@
-module github.com/tutorialedge/go-grpc-beginners-tutorial/chat
+module github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/grpc_health
 
 go 1.15
 
