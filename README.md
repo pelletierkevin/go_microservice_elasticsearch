@@ -20,7 +20,7 @@ Currently, the microservice allows a client to call his gRPC endpoints and offer
 - Create a new index in the elasticsearch cluster
 - Delete an index in the elasticsearch cluster
 
-![alt text](https://github.com/pelletierkevin/go_microservice_elasticsearch/blob/main/client_example1.png?raw=true)
+![Client example caption="Example of client calling the elastichealth gRPC microservice to get the cluster status"](https://github.com/pelletierkevin/go_microservice_elasticsearch/blob/main/client_example1.png?raw=true)
 
 
 ## elastic_health
