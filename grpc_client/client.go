@@ -15,8 +15,6 @@ func main() {
 		ErrorCommandArguments()
 		return
 	}
-	
-	log.Printf("Ok ")
 
 	grpcHostname := os.Args[1]
 	grpcPort := "9000"
