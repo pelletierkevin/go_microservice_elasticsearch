@@ -24,12 +24,14 @@ Currently, the microservice allows a client to call his gRPC endpoints and offer
 
 # How to run
 In folder elastic_health there is the executable for the microservice
+
 # Components
 
-## Elastichealth Microservice
+## - I) Elastichealth Microservice
 elastic_health folder
 
-### Go Project
+### - I.1) Go Project
+
 #### elasticsearch
 - health.go
 - indices.go
@@ -43,16 +45,16 @@ elastic_health folder
 - elastic_health_test.go
 - elastic_health (executable)
 
-### gRPC protobuf
+### - I.2) gRPC protobuf
 - server.proto
 `protoc --go_out=plugins=grpc:grpc_health server.proto`
 
-### Dockerfile
+### - I.3) Dockerfile
 - Dockerfile 
 https://hub.docker.com/repository/docker/kevinplltr/elastic-health
 Last tag version : 0.1.0
 
-## gRPC Client executable written in Go
+## - II) gRPC Client executable written in Go
 grpc_client folder
 - client.go
 `./client <grpc hostname> clusterhealth`
@@ -61,7 +63,7 @@ grpc_client folder
 `./client <grpc hostname> createindex <index name>`
 `./client <grpc hostname> deleteindex <index name>`
 
-## Helm chart
+## - III) Helm chart
 helm-chart-elastic folder
 In values.yaml we can see that we are using one image which is the one stored in dockerhub `kevinplltr/elastic-health` and that we specify the gRPC port which is 9000.
 
@@ -82,13 +84,20 @@ Protoc installed (protobuf)
 Go build
 
 
-# Docker image 
-
-
-
 # Sources
-Articles used to develop this project. 
-gRPC
-Elastic search
-Go
-Helm
+
+## - gRPC
+- gRPC package in Golang : https://godoc.org/google.golang.org/grpc
+- Writing a microservice in Golang using gRPC : https://bitbucket.org/blog/writing-a-microservice-in-golang-which-communicates-over-grpc
+- gRPC in Go Tutorial : https://bitbucket.org/blog/writing-a-microservice-in-golang-which-communicates-over-grpc
+
+## - Elasticsearch
+- Get Elasticsearch up and running : https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html
+- Cluster health API : https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html
+- Create index API : https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html
+- Delete index API : https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+- Cluster indices API : https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html
+
+## - Helm
+- Deploy a Go application with Helm : https://docs.bitnami.com/tutorials/deploy-go-application-kubernetes-helm/
+- Create Helm Chart : https://docs.bitnami.com/tutorials/create-your-first-helm-chart
