@@ -11,18 +11,20 @@ import (
 
 func main() {
 
-	if (len(os.Args) != 2 || len(os.Args) != 3) {
+	if (len(os.Args) != 3 && len(os.Args) != 4) {
 		ErrorCommandArguments()
 		return
-    }
+	}
+	
+	log.Printf("Ok ")
 
-	grpcHostname := "localhost"
+	grpcHostname := os.Args[1]
 	grpcPort := "9000"
 
 	c, conn := CreateGrpcConnection(grpcHostname, grpcPort)
 	defer conn.Close()
 
-	modeChoice := os.Args[1]
+	modeChoice := os.Args[2]
 	var response *grpc_health.Message
 
 	var err error 
@@ -49,12 +51,12 @@ func main() {
 		log.Printf("Cluster nb nodes: %s", clusterinfo.Nodes)
 	
 	case "indexhealth":
-		if (len(os.Args) != 3) {
+		if (len(os.Args) != 4) {
 			ErrorCommandArguments()
 			return
 		} 
 		
-		indiceName := os.Args[2]
+		indiceName := os.Args[3]
 		var indiceInfo *grpc_health.IndiceInfo
 		indiceInfo, err = c.GetIndiceStatus(context.Background(), &grpc_health.IndiceName{Indicename: indiceName})
 
@@ -88,11 +90,11 @@ func main() {
 		}
 	
 	case "createindex":
-		if (len(os.Args) != 3) {
+		if (len(os.Args) != 4) {
 			ErrorCommandArguments()
 			return
 		} 
-		indiceName := os.Args[2]
+		indiceName := os.Args[3]
 		response, err = c.CreateIndexInCluster(context.Background(), &grpc_health.IndiceName{Indicename: indiceName})
 		if err != nil {
 			log.Fatalf("Create index request response : %s", err)
@@ -100,12 +102,12 @@ func main() {
 		log.Printf("Create index request succeeded. %s", response.Body)
 
 	case "deleteindex":
-		if (len(os.Args) != 3) {
+		if (len(os.Args) != 4) {
 			ErrorCommandArguments()
 			return
 		} 
 		
-		indiceName := os.Args[2]
+		indiceName := os.Args[3]
 		response, err = c.DeleteIndexInCluster(context.Background(), &grpc_health.IndiceName{Indicename: indiceName})
 		if err != nil {
 			log.Fatalf("Error when deleting index in Cluster: %s", err)
@@ -122,11 +124,11 @@ func main() {
 
 func ErrorCommandArguments() {
 	log.Printf("Command error. Please use one of the following commmand :")
-	log.Printf("- %s %s", os.Args[0], "clusterhealth")
-	log.Printf("- %s %s", os.Args[0], "listindices")
-	log.Printf("- %s %s %s", os.Args[0], "indexhealth", "<index name>")
-	log.Printf("- %s %s %s", os.Args[0], "createindex", "<index name>")
-	log.Printf("- %s %s %s", os.Args[0], "deleteindex", "<index name>")
+	log.Printf("- %s %s %s", os.Args[0], "<grpc hostname>", "clusterhealth")
+	log.Printf("- %s %s %s", os.Args[0], "<grpc hostname>", "listindices")
+	log.Printf("- %s %s %s %s", os.Args[0], "<grpc hostname>", "indexhealth", "<index name>")
+	log.Printf("- %s %s %s %s", os.Args[0], "<grpc hostname>", "createindex", "<index name>")
+	log.Printf("- %s %s %s %s", os.Args[0], "<grpc hostname>", "deleteindex", "<index name>")
 }
 
 func CreateGrpcConnection(grpcHostname string, grpcPort string) (grpc_health.ElasticServiceClient, *grpc.ClientConn) {
@@ -135,7 +137,7 @@ func CreateGrpcConnection(grpcHostname string, grpcPort string) (grpc_health.Ela
 	if err != nil {
 		log.Fatalf("Error, did not connect to the gRPC server: %s", err)
 	} else {
-		log.Printf("Connected to gRPC server - Health/Status for Elasticsearch cluster")
+		log.Printf("Connected to gRPC server %s:%s - Health/Status for Elasticsearch cluster", grpcHostname, grpcPort)
 	}
 
 	c := grpc_health.NewElasticServiceClient(conn)
