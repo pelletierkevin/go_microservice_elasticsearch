@@ -340,7 +340,7 @@ var file_server_proto_rawDesc = []byte{
 	0x63, 0x65, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67,
 	0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63,
 	0x65, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0a, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x6c, 0x69, 0x73,
-	0x74, 0x32, 0x9b, 0x02, 0x0a, 0x0e, 0x45, 0x6c, 0x61, 0x73, 0x74, 0x69, 0x63, 0x53, 0x65, 0x72,
+	0x74, 0x32, 0xad, 0x03, 0x0a, 0x0e, 0x45, 0x6c, 0x61, 0x73, 0x74, 0x69, 0x63, 0x53, 0x65, 0x72,
 	0x76, 0x69, 0x63, 0x65, 0x12, 0x38, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f,
 	0x12, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d,
 	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65,
@@ -357,8 +357,17 @@ var file_server_proto_rawDesc = []byte{
 	0x65, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x14, 0x2e,
 	0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d, 0x65, 0x73, 0x73,
 	0x61, 0x67, 0x65, 0x1a, 0x18, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74,
-	0x68, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x22, 0x00, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x68, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x22, 0x00, 0x12,
+	0x47, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x49, 0x6e,
+	0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x12, 0x17, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68,
+	0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65,
+	0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x00, 0x12, 0x47, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x49, 0x6e, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72,
+	0x12, 0x17, 0x2e, 0x67, 0x72, 0x70, 0x63, 0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x49,
+	0x6e, 0x64, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x1a, 0x14, 0x2e, 0x67, 0x72, 0x70, 0x63,
+	0x5f, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22,
+	0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -387,12 +396,16 @@ var file_server_proto_depIdxs = []int32{
 	0, // 2: grpc_health.ElasticService.GetClusterStatus:input_type -> grpc_health.Message
 	1, // 3: grpc_health.ElasticService.GetIndiceStatus:input_type -> grpc_health.IndiceName
 	0, // 4: grpc_health.ElasticService.GetIndicesList:input_type -> grpc_health.Message
-	0, // 5: grpc_health.ElasticService.SayHello:output_type -> grpc_health.Message
-	2, // 6: grpc_health.ElasticService.GetClusterStatus:output_type -> grpc_health.ClusterInfo
-	3, // 7: grpc_health.ElasticService.GetIndiceStatus:output_type -> grpc_health.IndiceInfo
-	4, // 8: grpc_health.ElasticService.GetIndicesList:output_type -> grpc_health.ListIndices
-	5, // [5:9] is the sub-list for method output_type
-	1, // [1:5] is the sub-list for method input_type
+	1, // 5: grpc_health.ElasticService.CreateIndexInCluster:input_type -> grpc_health.IndiceName
+	1, // 6: grpc_health.ElasticService.DeleteIndexInCluster:input_type -> grpc_health.IndiceName
+	0, // 7: grpc_health.ElasticService.SayHello:output_type -> grpc_health.Message
+	2, // 8: grpc_health.ElasticService.GetClusterStatus:output_type -> grpc_health.ClusterInfo
+	3, // 9: grpc_health.ElasticService.GetIndiceStatus:output_type -> grpc_health.IndiceInfo
+	4, // 10: grpc_health.ElasticService.GetIndicesList:output_type -> grpc_health.ListIndices
+	0, // 11: grpc_health.ElasticService.CreateIndexInCluster:output_type -> grpc_health.Message
+	0, // 12: grpc_health.ElasticService.DeleteIndexInCluster:output_type -> grpc_health.Message
+	7, // [7:13] is the sub-list for method output_type
+	1, // [1:7] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -501,6 +514,8 @@ type ElasticServiceClient interface {
 	GetClusterStatus(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ClusterInfo, error)
 	GetIndiceStatus(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*IndiceInfo, error)
 	GetIndicesList(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ListIndices, error)
+	CreateIndexInCluster(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*Message, error)
+	DeleteIndexInCluster(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*Message, error)
 }
 
 type elasticServiceClient struct {
@@ -547,12 +562,32 @@ func (c *elasticServiceClient) GetIndicesList(ctx context.Context, in *Message, 
 	return out, nil
 }
 
+func (c *elasticServiceClient) CreateIndexInCluster(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*Message, error) {
+	out := new(Message)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/CreateIndexInCluster", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *elasticServiceClient) DeleteIndexInCluster(ctx context.Context, in *IndiceName, opts ...grpc.CallOption) (*Message, error) {
+	out := new(Message)
+	err := c.cc.Invoke(ctx, "/grpc_health.ElasticService/DeleteIndexInCluster", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ElasticServiceServer is the server API for ElasticService service.
 type ElasticServiceServer interface {
 	SayHello(context.Context, *Message) (*Message, error)
 	GetClusterStatus(context.Context, *Message) (*ClusterInfo, error)
 	GetIndiceStatus(context.Context, *IndiceName) (*IndiceInfo, error)
 	GetIndicesList(context.Context, *Message) (*ListIndices, error)
+	CreateIndexInCluster(context.Context, *IndiceName) (*Message, error)
+	DeleteIndexInCluster(context.Context, *IndiceName) (*Message, error)
 }
 
 // UnimplementedElasticServiceServer can be embedded to have forward compatible implementations.
@@ -570,6 +605,12 @@ func (*UnimplementedElasticServiceServer) GetIndiceStatus(context.Context, *Indi
 }
 func (*UnimplementedElasticServiceServer) GetIndicesList(context.Context, *Message) (*ListIndices, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetIndicesList not implemented")
+}
+func (*UnimplementedElasticServiceServer) CreateIndexInCluster(context.Context, *IndiceName) (*Message, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateIndexInCluster not implemented")
+}
+func (*UnimplementedElasticServiceServer) DeleteIndexInCluster(context.Context, *IndiceName) (*Message, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteIndexInCluster not implemented")
 }
 
 func RegisterElasticServiceServer(s *grpc.Server, srv ElasticServiceServer) {
@@ -648,6 +689,42 @@ func _ElasticService_GetIndicesList_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ElasticService_CreateIndexInCluster_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IndiceName)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ElasticServiceServer).CreateIndexInCluster(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc_health.ElasticService/CreateIndexInCluster",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ElasticServiceServer).CreateIndexInCluster(ctx, req.(*IndiceName))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ElasticService_DeleteIndexInCluster_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IndiceName)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ElasticServiceServer).DeleteIndexInCluster(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/grpc_health.ElasticService/DeleteIndexInCluster",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ElasticServiceServer).DeleteIndexInCluster(ctx, req.(*IndiceName))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _ElasticService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "grpc_health.ElasticService",
 	HandlerType: (*ElasticServiceServer)(nil),
@@ -667,6 +744,14 @@ var _ElasticService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetIndicesList",
 			Handler:    _ElasticService_GetIndicesList_Handler,
+		},
+		{
+			MethodName: "CreateIndexInCluster",
+			Handler:    _ElasticService_CreateIndexInCluster_Handler,
+		},
+		{
+			MethodName: "DeleteIndexInCluster",
+			Handler:    _ElasticService_DeleteIndexInCluster_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

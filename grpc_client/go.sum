@@ -28,6 +28,12 @@ github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.5.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/pelletierkevin/go_microservice_elasticsearch v0.0.0-20210106181153-86c3c23d5b66 h1:NxeVPsL7deb2IL/HVAf4+WM6RnAtbRqj7chYEOF1mfI=
+github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health v0.0.0-20210106181153-86c3c23d5b66 h1:xDkOGsErWSiRWQS3jx0bei5sHRPRkuRf5PSCnPQJGcY=
+github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch v0.0.0-20210106143910-bf4457c629a0 h1:uWwYu/8I71c7j5e31xO/iwLO47jhJJ6BiQDxojh3ADU=
+github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch v0.0.0-20210106143910-bf4457c629a0/go.mod h1:mbb4yZj+NP0N/2TeXDuvZapYjhbdLaC6Is+VODOPbzQ=
+github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/grpc_health v0.0.0-20210106181153-86c3c23d5b66 h1:vWp4S23btqIGXea7Yy9K4gq0L9rkscKcMlkzSmauaNs=
+github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/grpc_health v0.0.0-20210106181153-86c3c23d5b66/go.mod h1:t2KOXIRT/JpblfEzEfHqmA16GHPV/nJA38cMDb+0a+w=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

@@ -33,4 +33,6 @@ service ElasticService {
   rpc GetClusterStatus(Message) returns (ClusterInfo) {}
   rpc GetIndiceStatus(IndiceName) returns (IndiceInfo) {}
   rpc GetIndicesList(Message) returns (ListIndices) {}
+  rpc CreateIndexInCluster(IndiceName) returns (Message) {}
+  rpc DeleteIndexInCluster(IndiceName) returns (Message) {}
 }

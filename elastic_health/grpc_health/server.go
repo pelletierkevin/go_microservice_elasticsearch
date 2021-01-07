@@ -36,12 +36,12 @@ func StartGrpcServerOnPort(grpcPort string, clusterHostname string, clusterPort 
 }
 
 func (s *Server) SayHello(ctx context.Context, in *Message) (*Message, error) {
-	log.Printf("Receive message body from client: %s", in.Body)
+	log.Printf("Received message body from client: %s", in.Body)
 	return &Message{Body: "Hello From the Server! "}, nil
 }
 
 func (s *Server) GetClusterStatus(ctx context.Context, in *Message) (*ClusterInfo, error) {
-	log.Printf("Receive GetClusterStatus request")
+	log.Printf("Received GetClusterStatus request")
 
 	resp, err := elasticsearch.GetClusterHealth(s.ClusterHostname, s.ClusterPort)
     if err != nil {
@@ -58,7 +58,7 @@ func (s *Server) GetClusterStatus(ctx context.Context, in *Message) (*ClusterInf
 }
 
 func (s *Server) GetIndiceStatus(ctx context.Context, in *IndiceName) (*IndiceInfo, error) {
-	log.Printf("Receive GetClusterStatus request")
+	log.Printf("Received GetIndiceStatus request")
 
 	resp, err := elasticsearch.GetHealthOfIndice(s.ClusterHostname, s.ClusterPort, in.Indicename)
     if err != nil {
@@ -76,7 +76,7 @@ func (s *Server) GetIndiceStatus(ctx context.Context, in *IndiceName) (*IndiceIn
 }
 
 func (s *Server) GetIndicesList(ctx context.Context, in *Message) (*ListIndices, error) {
-	log.Printf("Receive GetIndicesList request")
+	log.Printf("Received GetIndicesList request")
 
 	resp, err := elasticsearch.GetClusterIndices(s.ClusterHostname, s.ClusterPort)
     if err != nil {
@@ -103,4 +103,24 @@ func (s *Server) GetIndicesList(ctx context.Context, in *Message) (*ListIndices,
 	listIndice.Indicelist = listOfPointers
 
 	return listIndice, nil
+}
+
+func (s *Server) CreateIndexInCluster(ctx context.Context, in *IndiceName) (*Message, error) {
+	log.Printf("Received CreateIndexInCluster request")
+
+	response, err := elasticsearch.CreateIndexInCluster(s.ClusterHostname, s.ClusterPort, in.Indicename)
+    if err != nil {
+        log.Fatal(err)
+    }
+	return &Message{Body: "Index succesfully created. " + response}, nil
+}
+
+func (s *Server) DeleteIndexInCluster(ctx context.Context, in *IndiceName) (*Message, error) {
+	log.Printf("Received DeleteIndexInCluster request")
+
+	response, err := elasticsearch.DeleteIndexInCluster(s.ClusterHostname, s.ClusterPort, in.Indicename)
+    if err != nil {
+        log.Fatal(err)
+    }
+	return &Message{Body: "Index succesfully deleted. " + response}, nil
 }

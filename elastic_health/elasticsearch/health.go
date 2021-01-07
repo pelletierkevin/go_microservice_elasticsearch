@@ -1,7 +1,6 @@
 package elasticsearch
 
 import (
-	"errors"
 	"net/http"
 	"io/ioutil"
 	"encoding/json"
@@ -56,11 +55,6 @@ func CanConnectToElasticSearchCluster(hostname string, port string) {
 func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
 	
 	var clusterInfo ClusterInfo
-
-	// Check hostname & port is correct
-    if (hostname == "" || port ==  "") {
-        return clusterInfo, errors.New("Hostname or Port not defined")
-	}
 	
     // Url to get the health of the Elasticsearch cluster
 	healthURL := "http://" + hostname + ":" + port + "/_cat/health?v&pretty"
@@ -91,47 +85,10 @@ func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
 	return clusterInfo, nil
 }
 
-func GetClusterIndices(hostname string, port string) ([]IndiceInfo, error) {
-	
-	var listIndices []IndiceInfo
-	
-	// Check hostname & port is correct
-    if (hostname == "" || port ==  "") {
-        return listIndices, errors.New("Hostname or Port not defined")
-    }
-    // Url to get all the indices of the Elasticsearch cluster
-	healthURL := "http://" + hostname + ":" + port + "/_cat/indices?v"
-
-	responseHealth, err := HttpGetWithJson(healthURL)
-	if err != nil {
-        return listIndices, err
-	} else {
-		log.Printf("Successfuly retrieved the indices of the cluster")
-	}
-
-	defer responseHealth.Body.Close()
-
-	body, err := ioutil.ReadAll(responseHealth.Body)
-	if err != nil {
-        return listIndices, err
-	}
-
-	err = json.Unmarshal(body, &listIndices)
-	if err != nil {
-		return listIndices, err
-	}
-
-	return listIndices, nil
-}
-
 func GetHealthOfIndice(hostname string, port string, indicename string) (IndiceInfo, error) {
    
 	var indiceInfo IndiceInfo
 	
-	// Check hostname & port is correct
-    if (hostname == "" || port ==  "") {
-        return indiceInfo, errors.New("Hostname or Port not defined")
-    }
     // Url to get the health status of the given index of the Elasticsearch cluster
 	healthURL := "http://" + hostname + ":" + port + "/_cat/indices/" + indicename + "?v"
 
