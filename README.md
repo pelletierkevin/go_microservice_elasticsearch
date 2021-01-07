@@ -10,7 +10,20 @@ The project is a microservice written in Golang exposing gRPC endpoints. Those e
 
 ---
 
-# Features
+# Table of contents 
+
+1. [Features](#features)
+2. [Requirements](#requirements)
+3. [How to run](#howtorun)
+    1. [Run the elastichealth microservice](#runmicroservice)
+    2. [Run the gRPC client](#runclient)
+4. [How to build](#howtobuild)
+5. [Components](#components)
+6. [Improvements](#improvements)
+7. [Sources](#sources)
+---
+
+# Features <a name="features"></a>
 
 Currently, the microservice allows a client to call his gRPC endpoints and offers the following functionalities : 
 
@@ -26,7 +39,7 @@ The gRPC server will use the port 9000.
 
 ---
 
-# Requirements
+# Requirements <a name="requirements"></a>
 
 - Elasticsearch installed. 
     - Install Elasticsearch here : https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
@@ -47,7 +60,7 @@ The gRPC server will use the port 9000.
 
 ---
 
-# How to run
+# How to run <a name="howtorun"></a>
 
 In folder elastic_health there is the executable for the microservice
 
@@ -55,7 +68,7 @@ First of all start an elasticsearch cluster. You will need the hostname and the 
 
 The microservice is launched by passing the elasticsearch cluster hostname:port parameter. There is a one-to-one relationship between the microservice and an elasticsearch cluster. In order to use the microservice on another elasticsearch cluster you need to execute a 2nd instance of the elastichealth microservice.
 
-## Run the elastichealth microservice
+## Run the elastichealth microservice <a name="runmicroservice"></a>
 
 ###     - Using the Go executable directly
   Go the the `elastic_health` folder
@@ -76,7 +89,7 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
   - Execute the command : `helm install -n helm-chart-elastic ./helm-chart-elastic`
   - Verify the pod is running : `kubectl get pods`
 
-## Run the gRPC client
+## Run the gRPC client <a name="runclient"></a>
 
 Once you have an elasticsearch cluster and the elastichealth microservice running you can launch a client to call the gRPC endpoints. 
 In the `grpc_client` folder a client executable is ready to be used. To use it : 
@@ -91,7 +104,7 @@ Example : `./client 127.0.0.1 clusterhealth`
 
 ---
 
-# How to build
+# How to build <a name="howtobuild"></a>
 
 To build the Go project you obviously first need to have a Go environment installed. 
 Currently the `go.mod` files for each module are referencing to each other by using the `replace` keyword and are not downloaded. This will be changed in the future to directly download from Github using a tag version.
@@ -106,9 +119,9 @@ To build the Client program it will be the same thing :
 
 ---
 
-# Components
+# Components <a name="components"></a>
 
-## - I) Elastichealth Microservice
+## - I) ElasticHealth Microservice <a name="submicroservice"></a>
 The `elastic_health` folder
 
 ### - I.1) Go Project
@@ -153,7 +166,7 @@ The docker image is published in Dockerhub :
 https://hub.docker.com/repository/docker/kevinplltr/elastic-health
 Last tag version : 0.1.0
 
-## - II) gRPC Client executable written in Go
+## - II) gRPC Client executable written in Go <a name="subclient"></a>
 The `grpc_client` folder
 
 This folder is composed by the `client.go` file which is basically able to call the different gRPC endpoints of our microservice given its hostname. 
@@ -165,15 +178,16 @@ This folder is composed by the `client.go` file which is basically able to call 
   - `./client <grpc hostname> createindex <index name>`
   - `./client <grpc hostname> deleteindex <index name>`
 
-## - III) Helm chart
+## - III) Helm chart <a name="subhelm"></a>
 The `helm-chart-elastic` folder
+
 This folder defines the different files required to use a Helm Chart which will run the microservice (using the docker image) on Kubernetes or Openshift.
 
 In values.yaml we define the docker image which is the one stored in dockerhub `kevinplltr/elastic-health` and we specify the gRPC port which is 9000.
 
 ---
 
-# Improvements & Ideas
+# Improvements & Ideas <a name="improvements"></a>
 
 - Log/Store real time info, + previous info (1hour, 1day)
 - Alert message (email, slack) when the health cluster is red
@@ -186,10 +200,11 @@ In values.yaml we define the docker image which is the one stored in dockerhub `
 - Implement a middleware to check and validate the arguments given for a request
 - Implement additional functionalities using the elasticsearch API 
 - Give a specific Json when creating an Index to define the number of replicas and other settings.
+- Develop additional unittests to cover specific cases. 
 
 ---
 
-# Sources
+# Sources <a name="sources"></a>
 
 ## - gRPC
 - gRPC package in Golang : https://godoc.org/google.golang.org/grpc
