@@ -43,7 +43,6 @@ func main() {
 		if err != nil {
 			log.Fatalf("Error when calling GetClusterStatus: %s", err)
 		}
-		log.Printf("Response from server: %s", clusterinfo.Name)
 		log.Printf("Cluster name: %s", clusterinfo.Name)
 		log.Printf("Cluster status: %s", clusterinfo.Status)
 		log.Printf("Cluster nb nodes: %s", clusterinfo.Nodes)
