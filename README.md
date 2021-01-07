@@ -1,6 +1,8 @@
-# go_microservice_elasticsearch
+# ElasticHealth Go Microservice
 
 Microservice written in Go to retrieve and deliver the health, status and the indices of an Elasticsearch cluster using gRPC endpoints.
+
+![alt text](https://github.com/pelletierkevin/go_microservice_elasticsearch/blob/main/elastichealth_schema.png?raw=true)
 
 # The project
 
