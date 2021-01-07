@@ -19,6 +19,9 @@ The project is a microservice written in Golang exposing gRPC endpoints. Those e
     2. [Run the gRPC client](#runclient)
 4. [How to build](#howtobuild)
 5. [Components](#components)
+    1. [ElasticHealth Microservice Go](#submicroservice)
+    2. [gRPC Client Go](#subclient)
+    3. [Helm chart](#subhelm)
 6. [Improvements](#improvements)
 7. [Sources](#sources)
 ---
