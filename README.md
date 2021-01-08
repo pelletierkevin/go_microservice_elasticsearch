@@ -6,7 +6,7 @@ Microservice written in Go to retrieve and deliver the health, status and the in
 
 # The project
 
-The project is a microservice written in Golang exposing gRPC endpoints. Those endpoints allow a client program to retrieve informations about an Elasticsearch cluster like health, status and its indices. The global implementation is wrapped around a Docker container. The docker image can be found in Docker hub here : https://hub.docker.com/repository/docker/kevinplltr/elastic-health. Additionally, the project can be used in a Kubernetes/Openshift environment, as it provides a usable Helm chart running this docker image. 
+The project is a microservice written in Golang exposing gRPC endpoints. Those endpoints allow a client program to retrieve informations about an Elasticsearch cluster like health, status and its indices. The global implementation is wrapped around a Docker container. The docker image can be found in Docker hub here: https://hub.docker.com/repository/docker/kevinplltr/elastic-health. Additionally, the project can be used in a Kubernetes/Openshift environment, as it provides a usable Helm chart running this docker image. 
 
 ![alt text](https://github.com/pelletierkevin/go_microservice_elasticsearch/blob/main/client_usage_example.gif?raw=true)
 
@@ -43,8 +43,6 @@ Currently, the microservice allows a client to call his gRPC endpoints and offer
 
 The gRPC server will use the port 9000. 
 
-![Client example caption="Example of client calling the elastichealth gRPC microservice to get the cluster status"](https://github.com/pelletierkevin/go_microservice_elasticsearch/blob/main/client_example1.png?raw=true)
-
 ---
 
 # Requirements <a name="requirements"></a>
@@ -57,14 +55,14 @@ The gRPC server will use the port 9000.
     - Install Go here: https://golang.org/doc/install
 
 - Docker installed
-    - Install Docker here : https://docs.docker.com/get-docker/
+    - Install Docker here: https://docs.docker.com/get-docker/
 
 - Helm installed
     - Install Helm here: https://helm.sh/docs/intro/install/
 
 - Protoc installed (protobuf)
-    - Get the latest version here : https://github.com/protocolbuffers/protobuf/tags and download the binary.
-    - Specify the `protoc` executable in yourr `$PATH` 
+    - Get the latest version here: https://github.com/protocolbuffers/protobuf/tags and download the binary.
+    - Specify the `protoc` executable in your `$PATH` 
 
 ---
 
@@ -170,9 +168,9 @@ Build the docker image:
 Run the docker image: 
 `docker run -p 9000:9000 kevinplltr/elastic-health:0.0.1 <cluster hostname> <cluster port >`
 
-The docker image is published in Dockerhub: https://hub.docker.com/repository/docker/kevinplltr/elastic-health
+The docker image is published in Dockerhub: https://hub.docker.com/repository/docker/kevinplltr/elastic-health.
 
-Last tag version: 0.1.0
+Last tag version: 0.1.0.
 
 ## - II) gRPC Client executable written in Go <a name="subclient"></a>
 This part describes the `grpc_client` folder.
