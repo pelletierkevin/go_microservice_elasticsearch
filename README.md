@@ -8,6 +8,8 @@ Microservice written in Go to retrieve and deliver the health, status and the in
 
 The project is a microservice written in Golang exposing gRPC endpoints. Those endpoints allow a client program to retrieve informations about an Elasticsearch cluster like health, status and its indices. The global implementation is wrapped around a Docker container. The docker image can be found in Docker hub here : https://hub.docker.com/repository/docker/kevinplltr/elastic-health. Additionally, the project can be used in a Kubernetes/Openshift environment, as it provides a usable Helm chart running this docker image. 
 
+![alt text](https://github.com/pelletierkevin/go_microservice_elasticsearch/blob/main/client_usage_example.gif?raw=true)
+
 ---
 
 # Table of contents 
@@ -20,6 +22,9 @@ The project is a microservice written in Golang exposing gRPC endpoints. Those e
 4. [How to build](#howtobuild)
 5. [Components](#components)
     1. [ElasticHealth Microservice Go](#submicroservice)
+        1. [Go Project](#goproject)
+        2. [gRPC protobuf](#grpcprotobuf)
+        3. [Dockerfile](#dockerfile)
     2. [gRPC Client Go](#subclient)
     3. [Helm chart](#subhelm)
 6. [Improvements](#improvements)
@@ -127,7 +132,7 @@ To build the Client program it will be the same thing :
 ## - I) ElasticHealth Microservice <a name="submicroservice"></a>
 The `elastic_health` folder
 
-### - I.1) Go Project
+### - I.1) Go Project <a name="goproject"></a>
 
 This folder contains the Go project running the microservice and the Dockerfile definition. 
 There are 2 modules in this project. The first one `elasticsearch` is responsible of making the calls to the elasticsearch API. The second one `grpc_health` is defining the 
@@ -148,14 +153,14 @@ The project tries to use the standard Go packages : https://golang.org/pkg/ inst
 - **elastic_health_test.go** (Unittests, covering the parsing of arguments, hostname and port)
 - **elastic_health** (Executable, built from elastic_health.go)
 
-### - I.2) gRPC protobuf
+### - I.2) gRPC protobuf <a name="grpcprotobuf"></a>
 - **server.proto**
 This file defines the different structure, services and endpoints provided by the gRPC module.
 
 To compile and regenerate the `grpc_health/server.pb.go` file use this command : 
 `protoc --go_out=plugins=grpc:grpc_health server.proto`
 
-### - I.3) Dockerfile
+### - I.3) Dockerfile <a name="dockerfile"></a>
 - **Dockerfile**
 The dockerfile is copying the Golang project, building it and set the `elastic_health` executable as an entrypoint. When running the docker image, you'll have to specify the arguments, like when you run the executable. 
 
@@ -204,6 +209,7 @@ In values.yaml we define the docker image which is the one stored in dockerhub `
 - Implement additional functionalities using the elasticsearch API 
 - Give a specific Json when creating an Index to define the number of replicas and other settings.
 - Develop additional unittests to cover specific cases. 
+- In production, the dockerfile/helm may need some additional commands for network/firewall (to enable access - iptables)
 
 ---
 

@@ -9,6 +9,7 @@ import (
     "github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch"
 )
 
+// This main is the one called for the elastic_health executable running the microservice.
 func main() {
 
     clusterHostname, clusterPort, err := GetClusterHostnameAndPortFromArguments()
@@ -24,6 +25,8 @@ func main() {
 
 }
 
+// GetClusterHostnameAndPortFromArguments will parse and check the arguments given when calling the program.
+// It returns the hostname and the port of the elasticsearch cluster given the arguments.
 func GetClusterHostnameAndPortFromArguments() (string, string, error)  {
     if len(os.Args) != 3 {
         return "", "", errors.New("Command error. Missing arguments or more arguments than required.")

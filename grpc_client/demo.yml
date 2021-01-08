@@ -1,0 +1,489 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/kevinpelletier/Documents/Docs/Taurus_git/go_microservice_elasticsearch/grpc_client
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 127
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 12
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 1305
+    content: "\r\nThe default interactive shell is now zsh.\r\nTo update your account to use zsh, please run `chsh -s /bin/zsh`.\r\nFor more details, please visit https://support.apple.com/kb/HT208050.\r\n\e[?1034h(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1243
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 132
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1546
+    content: .
+  - delay: 255
+    content: /
+  - delay: 210
+    content: c
+  - delay: 59
+    content: l
+  - delay: 45
+    content: i
+  - delay: 61
+    content: e
+  - delay: 103
+    content: 'n'
+  - delay: 76
+    content: t
+  - delay: 899
+    content: ' '
+  - delay: 271
+    content: l
+  - delay: 45
+    content: o
+  - delay: 103
+    content: c
+  - delay: 152
+    content: a
+  - delay: 46
+    content: l
+  - delay: 195
+    content: h
+  - delay: 45
+    content: o
+  - delay: 60
+    content: s
+  - delay: 165
+    content: t
+  - delay: 508
+    content: ' '
+  - delay: 420
+    content: c
+  - delay: 18
+    content: l
+  - delay: 208
+    content: u
+  - delay: 90
+    content: s
+  - delay: 73
+    content: t
+  - delay: 63
+    content: e
+  - delay: 105
+    content: r
+  - delay: 164
+    content: h
+  - delay: 418
+    content: e
+  - delay: 150
+    content: a
+  - delay: 135
+    content: l
+  - delay: 348
+    content: t
+  - delay: 89
+    content: h
+  - delay: 465
+    content: "\r\n"
+  - delay: 38
+    content: "2021/01/08 09:44:40 Ok \r\n2021/01/08 09:44:40 Connected to gRPC server localhost:9000 - Health/Status for Elasticsearch cluster\r\n"
+  - delay: 10
+    content: "2021/01/08 09:44:40 Response from server: elasticsearch_kevinpelletier\r\n2021/01/08 09:44:40 Cluster name: elasticsearch_kevinpelletier\r\n2021/01/08 09:44:40 Cluster status: yellow\r\n2021/01/08 09:44:40 Cluster nb nodes: 1\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1063
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 793
+    content: .
+  - delay: 241
+    content: /
+  - delay: 239
+    content: c
+  - delay: 105
+    content: l
+  - delay: 60
+    content: i
+  - delay: 74
+    content: e
+  - delay: 120
+    content: 'n'
+  - delay: 76
+    content: t
+  - delay: 390
+    content: ' '
+  - delay: 90
+    content: l
+  - delay: 151
+    content: o
+  - delay: 88
+    content: c
+  - delay: 120
+    content: a
+  - delay: 15
+    content: l
+  - delay: 196
+    content: h
+  - delay: 44
+    content: o
+  - delay: 76
+    content: s
+  - delay: 180
+    content: t
+  - delay: 148
+    content: ' '
+  - delay: 47
+    content: l
+  - delay: 74
+    content: i
+  - delay: 75
+    content: s
+  - delay: 135
+    content: t
+  - delay: 90
+    content: i
+  - delay: 44
+    content: 'n'
+  - delay: 92
+    content: d
+  - delay: 74
+    content: i
+  - delay: 89
+    content: c
+  - delay: 121
+    content: e
+  - delay: 121
+    content: s
+  - delay: 613
+    content: "\r\n"
+  - delay: 12
+    content: "2021/01/08 09:44:46 Ok \r\n2021/01/08 09:44:46 Connected to gRPC server localhost:9000 - Health/Status for Elasticsearch cluster\r\n"
+  - delay: 13
+    content: "2021/01/08 09:44:46 Nb indices : 3\r\n2021/01/08 09:44:46 Index [ new-index-4 ] - Status : open - Health : yellow - Uuid : uDzB3EC8Qi-afRt-nJlRdQ \r\n2021/01/08 09:44:46 Index [ new-index-2 ] - Status : open - Health : yellow - Uuid : gstSRkmwRw-33Y3PTY_y8w \r\n2021/01/08 09:44:46 Index [ my-index-000001 ] - Status : open - Health : yellow - Uuid : Q7cE68VoSAa_S_NIFgeZow \r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1010
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 976
+    content: .
+  - delay: 193
+    content: /
+  - delay: 211
+    content: c
+  - delay: 104
+    content: l
+  - delay: 210
+    content: e
+  - delay: 345
+    content: "\b\e[K"
+  - delay: 195
+    content: i
+  - delay: 105
+    content: e
+  - delay: 90
+    content: 'n'
+  - delay: 90
+    content: t
+  - delay: 481
+    content: ' '
+  - delay: 225
+    content: l
+  - delay: 120
+    content: o
+  - delay: 88
+    content: c
+  - delay: 151
+    content: a
+  - delay: 60
+    content: l
+  - delay: 196
+    content: h
+  - delay: 59
+    content: o
+  - delay: 105
+    content: s
+  - delay: 180
+    content: t
+  - delay: 586
+    content: ' '
+  - delay: 360
+    content: c
+  - delay: 239
+    content: r
+  - delay: 90
+    content: e
+  - delay: 120
+    content: a
+  - delay: 74
+    content: t
+  - delay: 76
+    content: e
+  - delay: 120
+    content: i
+  - delay: 60
+    content: 'n'
+  - delay: 75
+    content: d
+  - delay: 105
+    content: e
+  - delay: 150
+    content: x
+  - delay: 509
+    content: ' '
+  - delay: 270
+    content: m
+  - delay: 92
+    content: 'y'
+  - delay: 149
+    content: 'n'
+  - delay: 120
+    content: e
+  - delay: 316
+    content: w
+  - delay: 149
+    content: i
+  - delay: 59
+    content: 'n'
+  - delay: 76
+    content: d
+  - delay: 105
+    content: e
+  - delay: 165
+    content: x
+  - delay: 240
+    content: l
+  - delay: 75
+    content: i
+  - delay: 43
+    content: v
+  - delay: 152
+    content: e
+  - delay: 195
+    content: "\r\n"
+  - delay: 13
+    content: "2021/01/08 09:44:56 Ok \r\n2021/01/08 09:44:56 Connected to gRPC server localhost:9000 - Health/Status for Elasticsearch cluster\r\n"
+  - delay: 326
+    content: "2021/01/08 09:44:56 Create index request succeeded. Index succesfully created. {\"acknowledged\":true,\"shards_acknowledged\":true,\"index\":\"mynewindexlive\"}\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1175
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 720
+    content: ./client localhost createindex mynewindexlive
+  - delay: 240
+    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[15Plistindices"
+  - delay: 1169
+    content: "\r\n"
+  - delay: 14
+    content: "2021/01/08 09:44:59 Ok \r\n2021/01/08 09:44:59 Connected to gRPC server localhost:9000 - Health/Status for Elasticsearch cluster\r\n"
+  - delay: 10
+    content: "2021/01/08 09:44:59 Nb indices : 4\r\n2021/01/08 09:44:59 Index [ mynewindexlive ] - Status : open - Health : yellow - Uuid : LwV2QE1uSXyodhP3S-0j7g \r\n2021/01/08 09:44:59 Index [ new-index-4 ] - Status : open - Health : yellow - Uuid : uDzB3EC8Qi-afRt-nJlRdQ \r\n2021/01/08 09:44:59 Index [ new-index-2 ] - Status : open - Health : yellow - Uuid : gstSRkmwRw-33Y3PTY_y8w \r\n2021/01/08 09:44:59 Index [ my-index-000001 ] - Status : open - Health : yellow - Uuid : Q7cE68VoSAa_S_NIFgeZow \r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1671
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1138
+    content: .
+  - delay: 180
+    content: /
+  - delay: 225
+    content: c
+  - delay: 30
+    content: l
+  - delay: 60
+    content: i
+  - delay: 75
+    content: e
+  - delay: 89
+    content: 'n'
+  - delay: 74
+    content: t
+  - delay: 451
+    content: ' '
+  - delay: 585
+    content: l
+  - delay: 106
+    content: o
+  - delay: 74
+    content: c
+  - delay: 135
+    content: a
+  - delay: 59
+    content: l
+  - delay: 165
+    content: h
+  - delay: 61
+    content: o
+  - delay: 74
+    content: s
+  - delay: 166
+    content: t
+  - delay: 180
+    content: ' '
+  - delay: 570
+    content: d
+  - delay: 149
+    content: e
+  - delay: 61
+    content: l
+  - delay: 74
+    content: e
+  - delay: 120
+    content: t
+  - delay: 149
+    content: e
+  - delay: 75
+    content: i
+  - delay: 76
+    content: 'n'
+  - delay: 29
+    content: d
+  - delay: 121
+    content: e
+  - delay: 165
+    content: x
+  - delay: 119
+    content: ' '
+  - delay: 166
+    content: m
+  - delay: 104
+    content: 'y'
+  - delay: 631
+    content: 'n'
+  - delay: 74
+    content: e
+  - delay: 150
+    content: w
+  - delay: 151
+    content: i
+  - delay: 57
+    content: 'n'
+  - delay: 78
+    content: d
+  - delay: 103
+    content: e
+  - delay: 136
+    content: x
+  - delay: 75
+    content: l
+  - delay: 60
+    content: i
+  - delay: 90
+    content: v
+  - delay: 150
+    content: e
+  - delay: 1290
+    content: "\r\n"
+  - delay: 14
+    content: "2021/01/08 09:45:10 Ok \r\n2021/01/08 09:45:10 Connected to gRPC server localhost:9000 - Health/Status for Elasticsearch cluster\r\n"
+  - delay: 64
+    content: "2021/01/08 09:45:10 Delete index request response : Index succesfully deleted. {\"acknowledged\":true}\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 971
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 870
+    content: ./client localhost deleteindex mynewindexlive
+  - delay: 149
+    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[15Plistindices"
+  - delay: 524
+    content: "\b\b\b\b\b\b\b\b\b\b\bcreateindex mynewindexlive"
+  - delay: 391
+    content: "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\e[15Plistindices"
+  - delay: 434
+    content: "\r\n"
+  - delay: 11
+    content: "2021/01/08 09:45:13 Ok \r\n2021/01/08 09:45:13 Connected to gRPC server localhost:9000 - Health/Status for Elasticsearch cluster\r\n"
+  - delay: 9
+    content: "2021/01/08 09:45:13 Nb indices : 3\r\n2021/01/08 09:45:13 Index [ new-index-4 ] - Status : open - Health : yellow - Uuid : uDzB3EC8Qi-afRt-nJlRdQ \r\n2021/01/08 09:45:13 Index [ new-index-2 ] - Status : open - Health : yellow - Uuid : gstSRkmwRw-33Y3PTY_y8w \r\n2021/01/08 09:45:13 Index [ my-index-000001 ] - Status : open - Health : yellow - Uuid : Q7cE68VoSAa_S_NIFgeZow \r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 1479
+    content: "\r\n(base) Kevins-MacBook-Pro:grpc_client kevinpelletier$ "
+  - delay: 2056
+    content: "logout\r\n"

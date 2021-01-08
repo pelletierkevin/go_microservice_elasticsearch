@@ -9,6 +9,7 @@ import (
 	"github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/grpc_health"
 )
 
+// This client will send requests to a predefined gRPC server by calling the endpoints. 
 func main() {
 
 	if (len(os.Args) != 3 && len(os.Args) != 4) {

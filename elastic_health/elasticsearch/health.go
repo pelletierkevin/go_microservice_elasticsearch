@@ -1,3 +1,5 @@
+// Package elasticsearch implements methods to call Elasticsearch API, retrieve and cast results in proper return values.
+// The methods will essentially deliver informations about the health, status and the indices of an Elasticsearch cluster.  
 package elasticsearch
 
 import (
@@ -7,7 +9,8 @@ import (
 	"log"
 )
 
-
+// The ClusterInfo struct is representing all the fields returned by the Elasticsearch API when
+// asking for information about a cluster
 type ClusterInfo struct {
 	Epoch string `json:"epoch"`
 	Timestamp string `json:"timestamp"`
@@ -26,6 +29,8 @@ type ClusterInfo struct {
 
 }
 
+// The IndiceInfo struct is representing all the fields returned by the Elasticsearch API when
+// asking for information about an index
 type IndiceInfo struct {
 	Health string `json:"health"`
 	Status string `json:"status"`
@@ -39,6 +44,11 @@ type IndiceInfo struct {
 	Pri_store_size string `json:"pri.store.size"`
 }
 
+// CanConnectToElasticSearchCluster will simply check if the Elasticsearch cluster is reachable.
+// If it can connect, it will simply pass, and if it can't it will thrown an error.
+//
+// CanConnectToElasticSearchCluster("127.0.0.1", "9200")
+//
 func CanConnectToElasticSearchCluster(hostname string, port string) {
 	// Url to get the health of the Elasticsearch cluster
 	healthURL := "http://" + hostname + ":" + port + "/_cat/health?v&pretty"
@@ -51,7 +61,11 @@ func CanConnectToElasticSearchCluster(hostname string, port string) {
 	}
 }
 
-
+// GetClusterHealth returns a ClusterInfo struct describing the health, status and
+// other informations about the specified cluster.
+//
+// GetClusterHealth("127.0.0.1", "9200")
+//
 func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
 	
 	var clusterInfo ClusterInfo
@@ -85,6 +99,11 @@ func GetClusterHealth(hostname string, port string) (ClusterInfo, error) {
 	return clusterInfo, nil
 }
 
+// GetHealthOfIndice returns a IndiceInfo struct describing the health, status and
+// other informations about the specified index in the cluster.
+//
+// GetHealthOfIndice("127.0.0.1", "9200", "myindex")
+//
 func GetHealthOfIndice(hostname string, port string, indicename string) (IndiceInfo, error) {
    
 	var indiceInfo IndiceInfo
@@ -116,6 +135,8 @@ func GetHealthOfIndice(hostname string, port string, indicename string) (IndiceI
 	return indiceInfo, nil
 }
 
+// HttpGetWithJson is an helper function to send Http GET request and 
+// accept Json format as responses.
 func HttpGetWithJson(url string) (*http.Response, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)

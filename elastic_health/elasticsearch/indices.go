@@ -1,3 +1,5 @@
+// Package elasticsearch implements methods to call Elasticsearch API, retrieve and cast results in proper return values.
+// The methods will essentially deliver informations about the health, status and the indices of an Elasticsearch cluster. 
 package elasticsearch
 
 import (
@@ -7,6 +9,11 @@ import (
 	"log"
 )
 
+// GetClusterIndices returns an array of IndiceInfo which are currently available in the given
+// Elasticsearch cluster. 
+//
+// GetClusterIndices("127.0.0.1", "9200")
+//
 func GetClusterIndices(hostname string, port string) ([]IndiceInfo, error) {
 	
 	var listIndices []IndiceInfo
@@ -36,6 +43,12 @@ func GetClusterIndices(hostname string, port string) ([]IndiceInfo, error) {
 	return listIndices, nil
 }
 
+// CreateIndexInCluster will create an index in the specified elasticsearch cluster. For the moment
+// the index will be created using default values. It returns a string which represent the response of
+// the request to the Elasticsearch API.
+//
+// CreateIndexInCluster("127.0.0.1", "9200", "mynewindex")
+//
 func CreateIndexInCluster(hostname string, port string, indicename string) (string, error) {
 
 	// Url to get all the indices of the Elasticsearch cluster
@@ -59,6 +72,11 @@ func CreateIndexInCluster(hostname string, port string, indicename string) (stri
 
 }
 
+// DeleteIndexInCluster will delete an index in the specified elasticsearch cluster. 
+// It returns a string which represent the response of the request to the Elasticsearch API.
+//
+// DeleteIndexInCluster("127.0.0.1", "9200", "mynewindex")
+//
 func DeleteIndexInCluster(hostname string, port string, indicename string) (string, error) {
 
 	// Url to get all the indices of the Elasticsearch cluster
