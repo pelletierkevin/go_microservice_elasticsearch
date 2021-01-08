@@ -33,13 +33,13 @@ The project is a microservice written in Golang exposing gRPC endpoints. Those e
 
 # Features <a name="features"></a>
 
-Currently, the microservice allows a client to call his gRPC endpoints and offers the following functionalities : 
+Currently, the microservice allows a client to call his gRPC endpoints and offers the following functionalities: 
 
 - Get the elasticsearch cluster health/status, name and the number of nodes running.
 - Get the list of indices associated with this elasticsearch cluster.
-- Get the health, status and uuid of an indice of the cluster. (Given the index name)
-- Create a new index in the elasticsearch cluster
-- Delete an index in the elasticsearch cluster
+- Get the health, status and uuid of an indice of the cluster (given the index name).
+- Create a new index in the elasticsearch cluster.
+- Delete an index in the elasticsearch cluster.
 
 The gRPC server will use the port 9000. 
 
@@ -50,17 +50,17 @@ The gRPC server will use the port 9000.
 # Requirements <a name="requirements"></a>
 
 - Elasticsearch installed. 
-    - Install Elasticsearch here : https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
+    - Install Elasticsearch here: https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
     - Start an elastic search cluster (i.e. run the `elasticsearch`command). Get the hostname and port of this cluster. 
 
 - To modify the project you'll have to install Go and have a Go environment set up.
-    - Install Go here : https://golang.org/doc/install
+    - Install Go here: https://golang.org/doc/install
 
 - Docker installed
     - Install Docker here : https://docs.docker.com/get-docker/
 
 - Helm installed
-    - Install Helm here : https://helm.sh/docs/intro/install/
+    - Install Helm here: https://helm.sh/docs/intro/install/
 
 - Protoc installed (protobuf)
     - Get the latest version here : https://github.com/protocolbuffers/protobuf/tags and download the binary.
@@ -82,7 +82,7 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
   Go the the `elastic_health` folder
   `./elasticsearch <cluster hostname> <cluster port>`
 
-  Example : `./elasticsearch 127.0.0.1 9200`
+  Example: `./elasticsearch 127.0.0.1 9200`
 
 ###     - Using the Docker image
   - You can either pull the docker image from dockerhub : `docker pull kevinplltr/elastic-health:0.1.0`
@@ -90,7 +90,7 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
 
   Then run the docker container : `docker run -p 9000:9000 kevinplltr/elastic-health:0.0.1 <cluster hostname> <cluster port>`
 
-  Example : `docker run -p 9000:9000 kevinplltr/elastic-health:0.0.1 host.docker.internal 9200` if the cluster is running on the host machine.
+  Example: `docker run -p 9000:9000 kevinplltr/elastic-health:0.0.1 host.docker.internal 9200` if the cluster is running on the host machine.
 
 ###     - Using the Helm chart
   - First make sure you can connect to your Kubernetes cluster. 
@@ -117,11 +117,11 @@ Example : `./client 127.0.0.1 clusterhealth`
 To build the Go project you obviously first need to have a Go environment installed. 
 Currently the `go.mod` files for each module are referencing to each other by using the `replace` keyword and are not downloaded. This will be changed in the future to directly download from Github using a tag version.
 
-Go to the `elastic_health` folder and build : 
+Go to the `elastic_health` folder and build: 
   - `cd elastic_health`
   - `go build -o elastic_health elastic_health.go`
 
-To build the Client program it will be the same thing : 
+To build the Client program it will be the same thing: 
   - `cd grpc_client`
   - `go build -o client client.go`
 
@@ -130,7 +130,7 @@ To build the Client program it will be the same thing :
 # Components <a name="components"></a>
 
 ## - I) ElasticHealth Microservice <a name="submicroservice"></a>
-The `elastic_health` folder
+This part describes the `elastic_health` folder.
 
 ### - I.1) Go Project <a name="goproject"></a>
 
@@ -138,7 +138,7 @@ This folder contains the Go project running the microservice and the Dockerfile 
 There are 2 modules in this project. The first one `elasticsearch` is responsible of making the calls to the elasticsearch API. The second one `grpc_health` is defining the 
 gRPC server and its different services/endpoints. Those 2 modules are called by the `elastic_health.go` main interface. 
 
-The project tries to use the standard Go packages : https://golang.org/pkg/ instead of using fancy modules. (exception for gRPC module still provided by golang)
+The project tries to use the standard Go packages : https://golang.org/pkg/ instead of using fancy modules (exception for gRPC module still provided by golang).
 
 #### elasticsearch
 - **health.go** (Retrieve the health of a cluster, and the health of a specified index)
@@ -157,25 +157,25 @@ The project tries to use the standard Go packages : https://golang.org/pkg/ inst
 - **server.proto**
 This file defines the different structure, services and endpoints provided by the gRPC module.
 
-To compile and regenerate the `grpc_health/server.pb.go` file use this command : 
+To compile and regenerate the `grpc_health/server.pb.go` file use this command: 
 `protoc --go_out=plugins=grpc:grpc_health server.proto`
 
 ### - I.3) Dockerfile <a name="dockerfile"></a>
 - **Dockerfile**
 The dockerfile is copying the Golang project, building it and set the `elastic_health` executable as an entrypoint. When running the docker image, you'll have to specify the arguments, like when you run the executable. 
 
-Build the docker image : 
+Build the docker image: 
 `docker build -t kevinplltr/elastic-health:0.1.0 .`
 
-Run the docker image : 
+Run the docker image: 
 `docker run -p 9000:9000 kevinplltr/elastic-health:0.0.1 <cluster hostname> <cluster port >`
 
-The docker image is published in Dockerhub : 
-https://hub.docker.com/repository/docker/kevinplltr/elastic-health
-Last tag version : 0.1.0
+The docker image is published in Dockerhub: https://hub.docker.com/repository/docker/kevinplltr/elastic-health
+
+Last tag version: 0.1.0
 
 ## - II) gRPC Client executable written in Go <a name="subclient"></a>
-The `grpc_client` folder
+This part describes the `grpc_client` folder.
 
 This folder is composed by the `client.go` file which is basically able to call the different gRPC endpoints of our microservice given its hostname. 
 - **client.go** (Composed of a main method which will make different endpoints calls based on the arguments)
@@ -187,7 +187,7 @@ This folder is composed by the `client.go` file which is basically able to call 
   - `./client <grpc hostname> deleteindex <index name>`
 
 ## - III) Helm chart <a name="subhelm"></a>
-The `helm-chart-elastic` folder
+This part describes the `helm-chart-elastic` folder.
 
 This folder defines the different files required to use a Helm Chart which will run the microservice (using the docker image) on Kubernetes or Openshift.
 
@@ -197,19 +197,19 @@ In values.yaml we define the docker image which is the one stored in dockerhub `
 
 # Improvements & Ideas <a name="improvements"></a>
 
-- Log/Store real time info, + previous info (1hour, 1day)
-- Alert message (email, slack) when the health cluster is red
-- Make periodic calls (monitor every 30 seconds for example)
-- Enable encrypted gRPC communication (using certificate)
-- Enable uses of an https elasticsearch cluster
-- Implement a middleware to cache and log the requests
+- Log/Store real time info, + previous info (1hour, 1day).
+- Alert message (email, slack) when the health cluster is red.
+- Make periodic calls (monitor every 30 seconds for example).
+- Enable encrypted gRPC communication (using certificate).
+- Enable uses of an https elasticsearch cluster.
+- Implement a middleware to cache and log the requests.
 - Implement a background job checking the existing indices and deleting the old ones using the timestamp. 
-- Add the timestamp information in the gRPC requests
-- Implement a middleware to check and validate the arguments given for a request
-- Implement additional functionalities using the elasticsearch API 
+- Add the timestamp information in the gRPC requests.
+- Implement a middleware to check and validate the arguments given for a request.
+- Implement additional functionalities using the elasticsearch API.
 - Give a specific Json when creating an Index to define the number of replicas and other settings.
 - Develop additional unittests to cover specific cases. 
-- In production, the dockerfile/helm may need some additional commands for network/firewall (to enable access - iptables)
+- In production, the dockerfile/helm may need some additional commands for network/firewall (to enable access - iptables).
 
 ---
 
