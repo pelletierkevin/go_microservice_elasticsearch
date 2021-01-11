@@ -92,7 +92,7 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
 
 ###     - Using the Helm chart
   - First make sure you can connect to your Kubernetes cluster. 
-  - Execute the command : `helm install -n helm-chart-elastic ./helm-chart-elastic`
+  - Execute the command : `helm install --generate-name ./helm-chart-elastic`
   - Verify the pod is running : `kubectl get pods`
 
 ## Run the gRPC client <a name="runclient"></a>
@@ -178,11 +178,11 @@ This part describes the `grpc_client` folder.
 This folder is composed by the `client.go` file which is basically able to call the different gRPC endpoints of our microservice given its hostname. 
 - **client.go** (Composed of a main method which will make different endpoints calls based on the arguments)
 - **client** (Executable, built from client.go)
-  - `./client <grpc hostname> clusterhealth`
-  - `./client <grpc hostname> listindices`
-  - `./client <grpc hostname> indexhealth <index name>`
-  - `./client <grpc hostname> createindex <index name>`
-  - `./client <grpc hostname> deleteindex <index name>`
+  - `./client <grpc hostname> <grpc port> clusterhealth`
+  - `./client <grpc hostname> <grpc port> listindices`
+  - `./client <grpc hostname> <grpc port> indexhealth <index name>`
+  - `./client <grpc hostname> <grpc port> createindex <index name>`
+  - `./client <grpc hostname> <grpc port> deleteindex <index name>`
 
 ## - III) Helm chart <a name="subhelm"></a>
 This part describes the `helm-chart-elastic` folder.
