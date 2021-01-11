@@ -99,11 +99,11 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
 
 Once you have an elasticsearch cluster and the elastichealth microservice running you can launch a client to call the gRPC endpoints. 
 In the `grpc_client` folder a client executable is ready to be used. To use it : 
-  - `./client <grpc hostname> clusterhealth`
-  - `./client <grpc hostname> listindices`
-  - `./client <grpc hostname> indexhealth <index name>`
-  - `./client <grpc hostname> createindex <index name>`
-  - `./client <grpc hostname> deleteindex <index name>`
+  - `./client <grpc hostname> <grpc port> clusterhealth`
+  - `./client <grpc hostname> <grpc port> listindices`
+  - `./client <grpc hostname> <grpc port> indexhealth <index name>`
+  - `./client <grpc hostname> <grpc port> createindex <index name>`
+  - `./client <grpc hostname> <grpc port> deleteindex <index name>`
 
 The gRPC hostname will be the IP address where the microservice is running. 
 Example : `./client 127.0.0.1 clusterhealth`
