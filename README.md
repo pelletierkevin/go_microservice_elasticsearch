@@ -78,9 +78,9 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
 
 ###     - Using the Go executable directly
   Go the the `elastic_health` folder
-  `./elasticsearch <cluster hostname> <cluster port>`
+  `./elastic_health <cluster hostname> <cluster port>`
 
-  Example: `./elasticsearch 127.0.0.1 9200`
+  Example: `./elastic_health 127.0.0.1 9200`
 
 ###     - Using the Docker image
   - You can either pull the docker image from dockerhub : `docker pull kevinplltr/elastic-health:0.1.0`
