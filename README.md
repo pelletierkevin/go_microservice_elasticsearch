@@ -153,7 +153,7 @@ The project tries to use the standard Go packages : https://golang.org/pkg/ inst
 
 ### - I.2) gRPC protobuf <a name="grpcprotobuf"></a>
 - **server.proto**
-This file defines the different structure, services and endpoints provided by the gRPC module.
+This file defines the different structures, services and endpoints provided by the gRPC module.
 
 To compile and regenerate the `grpc_health/server.pb.go` file use this command: 
 `protoc --go_out=plugins=grpc:grpc_health server.proto`

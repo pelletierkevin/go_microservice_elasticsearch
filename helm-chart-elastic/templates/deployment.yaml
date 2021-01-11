@@ -33,17 +33,16 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: ["IP_ADDRESS", "9200"]
           ports:
             - name: http
               containerPort: {{ .Values.service.internalPort }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
+            tcpSocket:
               port: {{ .Values.service.internalPort }}
           readinessProbe:
-            httpGet:
-              path: /
+            tcpSocket:
               port: {{ .Values.service.internalPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
