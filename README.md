@@ -78,9 +78,9 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
 
 ###     - Using the Go executable directly
   Go the the `elastic_health` folder
-  `./elasticsearch <cluster hostname> <cluster port>`
+  `./elastic_health <cluster hostname> <cluster port>`
 
-  Example: `./elasticsearch 127.0.0.1 9200`
+  Example: `./elastic_health 127.0.0.1 9200`
 
 ###     - Using the Docker image
   - You can either pull the docker image from dockerhub : `docker pull kevinplltr/elastic-health:0.1.0`
@@ -92,18 +92,18 @@ The microservice is launched by passing the elasticsearch cluster hostname:port 
 
 ###     - Using the Helm chart
   - First make sure you can connect to your Kubernetes cluster. 
-  - Execute the command : `helm install -n helm-chart-elastic ./helm-chart-elastic`
+  - Execute the command : `helm install --generate-name ./helm-chart-elastic`
   - Verify the pod is running : `kubectl get pods`
 
 ## Run the gRPC client <a name="runclient"></a>
 
 Once you have an elasticsearch cluster and the elastichealth microservice running you can launch a client to call the gRPC endpoints. 
 In the `grpc_client` folder a client executable is ready to be used. To use it : 
-  - `./client <grpc hostname> clusterhealth`
-  - `./client <grpc hostname> listindices`
-  - `./client <grpc hostname> indexhealth <index name>`
-  - `./client <grpc hostname> createindex <index name>`
-  - `./client <grpc hostname> deleteindex <index name>`
+  - `./client <grpc hostname> <grpc port> clusterhealth`
+  - `./client <grpc hostname> <grpc port> listindices`
+  - `./client <grpc hostname> <grpc port> indexhealth <index name>`
+  - `./client <grpc hostname> <grpc port> createindex <index name>`
+  - `./client <grpc hostname> <grpc port> deleteindex <index name>`
 
 The gRPC hostname will be the IP address where the microservice is running. 
 Example : `./client 127.0.0.1 clusterhealth`
@@ -178,11 +178,11 @@ This part describes the `grpc_client` folder.
 This folder is composed by the `client.go` file which is basically able to call the different gRPC endpoints of our microservice given its hostname. 
 - **client.go** (Composed of a main method which will make different endpoints calls based on the arguments)
 - **client** (Executable, built from client.go)
-  - `./client <grpc hostname> clusterhealth`
-  - `./client <grpc hostname> listindices`
-  - `./client <grpc hostname> indexhealth <index name>`
-  - `./client <grpc hostname> createindex <index name>`
-  - `./client <grpc hostname> deleteindex <index name>`
+  - `./client <grpc hostname> <grpc port> clusterhealth`
+  - `./client <grpc hostname> <grpc port> listindices`
+  - `./client <grpc hostname> <grpc port> indexhealth <index name>`
+  - `./client <grpc hostname> <grpc port> createindex <index name>`
+  - `./client <grpc hostname> <grpc port> deleteindex <index name>`
 
 ## - III) Helm chart <a name="subhelm"></a>
 This part describes the `helm-chart-elastic` folder.
