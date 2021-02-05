@@ -3,48 +3,48 @@
 package grpc_health
 
 import (
+	"github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch"
+	"golang.org/x/net/context"
+	"google.golang.org/grpc"
 	"log"
 	"net"
 	"strconv"
-	"golang.org/x/net/context"
-	"google.golang.org/grpc"
-	"github.com/pelletierkevin/go_microservice_elasticsearch/elastic_health/elasticsearch"
 )
 
 type Server struct {
-	ClusterHostname string 
-	ClusterPort string
+	ClusterHostname string
+	ClusterPort     string
 }
 
-// StartGrpcServerOnPort will prepare and start the gRPC server exposing the 
-// different services endpoints. Note that this is a blocking function and will never end unless 
+// StartGrpcServerOnPort will prepare and start the gRPC server exposing the
+// different services endpoints. Note that this is a blocking function and will never end unless
 // an error occur.
 //
 // StartGrpcServerOnPort("9000", "127.0.0.1", "9200")
 //
 func StartGrpcServerOnPort(grpcPort string, clusterHostname string, clusterPort string) {
-	
+
 	log.Printf("Start gRPC server")
 
-	lis, err := net.Listen("tcp", ":" + grpcPort)
-    if err != nil {
-        log.Fatalf("Failed to listen on port %s :  %v", grpcPort, err)
-    }
+	lis, err := net.Listen("tcp", ":"+grpcPort)
+	if err != nil {
+		log.Fatalf("Failed to listen on port %s :  %v", grpcPort, err)
+	}
 
-    s := Server{clusterHostname, clusterPort}
+	s := Server{clusterHostname, clusterPort}
 
-    grpcServer := grpc.NewServer()
+	grpcServer := grpc.NewServer()
 
-    RegisterElasticServiceServer(grpcServer, &s)
+	RegisterElasticServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve gRPC server : %s", err)
-    }
-    
+	}
+
 }
 
 // SayHello implements the gRPC service endpoint defined in the proto configuration.
-// It is mainly a check to verify the gRPC server is reachable from the client. 
+// It is mainly a check to verify the gRPC server is reachable from the client.
 //
 // SayHello(context.Background(), &Message{Body: "My message"})
 //
@@ -64,10 +64,10 @@ func (s *Server) GetClusterStatus(ctx context.Context, in *Message) (*ClusterInf
 	log.Printf("Received GetClusterStatus request")
 
 	resp, err := elasticsearch.GetClusterHealth(s.ClusterHostname, s.ClusterPort)
-    if err != nil {
-        log.Fatal(err)
-    }
-	
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	var clusterInfo *ClusterInfo
 	clusterInfo = new(ClusterInfo)
 	clusterInfo.Name = resp.Name
@@ -87,10 +87,10 @@ func (s *Server) GetIndiceStatus(ctx context.Context, in *IndiceName) (*IndiceIn
 	log.Printf("Received GetIndiceStatus request")
 
 	resp, err := elasticsearch.GetHealthOfIndice(s.ClusterHostname, s.ClusterPort, in.Indicename)
-    if err != nil {
-        log.Fatal(err)
-    }
-	
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	var indiceInfo *IndiceInfo
 	indiceInfo = new(IndiceInfo)
 	indiceInfo.Indicename = resp.Index
@@ -112,14 +112,14 @@ func (s *Server) GetIndicesList(ctx context.Context, in *Message) (*ListIndices,
 	log.Printf("Received GetIndicesList request")
 
 	resp, err := elasticsearch.GetClusterIndices(s.ClusterHostname, s.ClusterPort)
-    if err != nil {
-        log.Fatal(err)
-    }
-	
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	var listIndice *ListIndices
 	listIndice = new(ListIndices)
 	listIndice.NbIndices = strconv.Itoa(len(resp))
-	
+
 	var listOfPointers []*IndiceInfo
 	for _, element := range resp {
 		var indiceInfo *IndiceInfo
@@ -139,7 +139,7 @@ func (s *Server) GetIndicesList(ctx context.Context, in *Message) (*ListIndices,
 }
 
 // CreateIndexInCluster implements the gRPC service endpoint defined in the proto configuration.
-// It will create an index in the elasticsearch cluster. It returns a Message which will contain the 
+// It will create an index in the elasticsearch cluster. It returns a Message which will contain the
 // response of the request.
 //
 // CreateIndexInCluster(context.Message(), &IndiceName{Indicename: "myindex"})
@@ -148,14 +148,14 @@ func (s *Server) CreateIndexInCluster(ctx context.Context, in *IndiceName) (*Mes
 	log.Printf("Received CreateIndexInCluster request")
 
 	response, err := elasticsearch.CreateIndexInCluster(s.ClusterHostname, s.ClusterPort, in.Indicename)
-    if err != nil {
-        log.Fatal(err)
-    }
+	if err != nil {
+		log.Fatal(err)
+	}
 	return &Message{Body: "Index succesfully created. " + response}, nil
 }
 
 // DeleteIndexInCluster implements the gRPC service endpoint defined in the proto configuration.
-// It will delete an index in the elasticsearch cluster. It returns a Message which will contain the 
+// It will delete an index in the elasticsearch cluster. It returns a Message which will contain the
 // response of the request.
 //
 // DeleteIndexInCluster(context.Message(), &IndiceName{Indicename: "myindex"})
@@ -164,8 +164,8 @@ func (s *Server) DeleteIndexInCluster(ctx context.Context, in *IndiceName) (*Mes
 	log.Printf("Received DeleteIndexInCluster request")
 
 	response, err := elasticsearch.DeleteIndexInCluster(s.ClusterHostname, s.ClusterPort, in.Indicename)
-    if err != nil {
-        log.Fatal(err)
-    }
+	if err != nil {
+		log.Fatal(err)
+	}
 	return &Message{Body: "Index succesfully deleted. " + response}, nil
 }

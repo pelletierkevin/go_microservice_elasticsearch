@@ -1,13 +1,12 @@
 package elasticsearch
 
 import (
+	"log"
 	"net"
 	"net/http"
 	"net/http/httptest"
-	"log"
 	"testing"
 )
-
 
 func TestGetClusterHealthWithCorrectResponse(t *testing.T) {
 	log.Printf("- TestGetClusterHealthWithCorrectResponse - ")
@@ -22,10 +21,10 @@ func TestGetClusterHealthWithCorrectResponse(t *testing.T) {
 	CanConnectToElasticSearchCluster(testHostname, testPort)
 	clusterinfo, err := GetClusterHealth(testHostname, testPort)
 	if err != nil {
-        log.Fatal(err)
-	} 
+		log.Fatal(err)
+	}
 
-	if( clusterinfo.Name != "test_cluster") {
+	if clusterinfo.Name != "test_cluster" {
 		t.Errorf("Error the expected cluster name is %s but received %s ", "test_cluster", clusterinfo.Name)
 	}
 
@@ -43,8 +42,8 @@ func TestGetClusterHealthWithWrongResponse(t *testing.T) {
 
 	_, err := GetClusterHealth(testHostname, testPort)
 	if err == nil {
-        t.Errorf("Was expecting an error. It should have thrown an error because of the wrong response sent by the mocked http cluster.")
-	} 
+		t.Errorf("Was expecting an error. It should have thrown an error because of the wrong response sent by the mocked http cluster.")
+	}
 
 }
 
@@ -60,10 +59,10 @@ func TestGetClusterIndicesWithCorrectResponse(t *testing.T) {
 
 	listIndices, err := GetClusterIndices(testHostname, testPort)
 	if err != nil {
-        log.Fatal(err)
-	} 
+		log.Fatal(err)
+	}
 
-	if( listIndices[0].Health != "yellow") {
+	if listIndices[0].Health != "yellow" {
 		t.Errorf("Error the expected cluster health is %s but received %s ", "yellow", listIndices[0].Health)
 	}
 
@@ -80,8 +79,8 @@ func TestGetClusterIndicesWithWrongResponse(t *testing.T) {
 
 	_, err := GetClusterIndices(testHostname, testPort)
 	if err == nil {
-        t.Errorf("Was expecting an error. It should have thrown an error because of the wrong response sent by the mocked http cluster.")
-	} 
+		t.Errorf("Was expecting an error. It should have thrown an error because of the wrong response sent by the mocked http cluster.")
+	}
 
 }
 
@@ -97,10 +96,10 @@ func TestGetHealthOfIndiceWithCorrectResponse(t *testing.T) {
 
 	indiceInfo, err := GetHealthOfIndice(testHostname, testPort, "my-index-000001")
 	if err != nil {
-        log.Fatal(err)
-	} 
+		log.Fatal(err)
+	}
 
-	if( indiceInfo.Health != "yellow") {
+	if indiceInfo.Health != "yellow" {
 		t.Errorf("Error the expected cluster name is %s but received %s ", "yellow", indiceInfo.Health)
 	}
 
@@ -118,28 +117,28 @@ func TestGetHealthOfIndiceWithWrongResponse(t *testing.T) {
 
 	_, err := GetHealthOfIndice(testHostname, testPort, "my-index-000001")
 	if err == nil {
-        t.Errorf("Was expecting an error. It should have thrown an error because of the wrong response sent by the mocked http cluster.")
-	} 
+		t.Errorf("Was expecting an error. It should have thrown an error because of the wrong response sent by the mocked http cluster.")
+	}
 
 }
 
-func MockHttpResponseFromCluster(expectedJsonResponse string, clusterHostname string, clusterPort string) (*httptest.Server) {
+func MockHttpResponseFromCluster(expectedJsonResponse string, clusterHostname string, clusterPort string) *httptest.Server {
 
 	// Start a local HTTP server
 	handler := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
 		// Send response to be tested
 		rw.Write([]byte(expectedJsonResponse))
-	}) 
+	})
 
 	// create a listener with the desired port.
-	l, err := net.Listen("tcp", clusterHostname +":"+ clusterPort)
+	l, err := net.Listen("tcp", clusterHostname+":"+clusterPort)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	testserver := httptest.NewUnstartedServer(handler)
 
-	// NewUnstartedServer creates a listener. Close that listener and replace 
+	// NewUnstartedServer creates a listener. Close that listener and replace
 	// with the one we created.
 	testserver.Listener.Close()
 	testserver.Listener = l
